@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Team Activity | Week 02</title>
+    <meta name="description" content="Ellen Carlson's Week 02 Team Activity Assignment">
+    <script>
+        function readContents() {
+            //gets input from the user
+            let textContent = document.getElementById("textbox1").value;
+            document.getElementById("outputDiv1").innerHTML = textContent;
+        }
+
+        function sumNumbers() {
+            let n = parseFloat(document.getElementById("textbox2").value);
+            let sum = 0;
+            for (i = n; i > 0; i--) {
+                sum += i;
+            }
+            document.getElementById("outputDiv2").innerHTML = sum;
+        }
+
+        function addingMachine() {
+            let firstValue = parseFloat(document.getElementById("textbox3").value);
+            let secondValue = parseFloat(document.getElementById("textbox4").value);
+            let sumOfValues = firstValue + secondValue;
+            document.getElementById("outputDiv3").innerHTML = sumOfValues;
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h2>Write a function that will read the contents of the input, and write them into the div.</h2>
+        <input type="text" id="textbox1" name="textbox1">
+        <button type="button" onclick="readContents()">Submit</button>
+        <div id="outputDiv1"></div>
+    </div>
+    <div>
+        <h2>Write a new function that expects a number as an argument. It should take that number and sum all the numbers up to the number provided. It should return that value.</h2>
+        <input type="number" id="textbox2" name="textbox2">
+        <button type="button" onclick="sumNumbers()">Sum</button>
+        <div id="outputDiv2"></div>
+    </div>
+    <div>
+        <h2>Create an adding machine</h2>
+        <input type="number" id="textbox3" name="textbox3">
+        <input type="number" id="textbox4" name="textbox4">
+        <button type="button" onclick="addingMachine()">+</button>
+        <div id="outputDiv3"></div>
+    </div>
+</body>
+
+</html>
