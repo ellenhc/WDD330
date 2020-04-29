@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week 02 | WDD 330</title>
+    <meta name="description" content="Ellen Carlson's Week 02 WDD 330 portfolio">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <h1>Week 02</h1>
+        <section>
+            <h2>Chp 2: Programming Basics</h2>
+            <div>
+                <h3>Variables</h3>
+                <p>Variables are used in programming languages to refer to a value stored in memory.</p>
+                <p>Variables have to be declared before they can be used. This is done with "const" or "let."</p>
+            </div>
+            <div>
+                <h3>Scope</h3>
+                <p>Scope refers to where a contstant or variable is accessible by the program.</p>
+                <p>There are two common scopes: global and local. Global scope means it is accessible everywhere in the program. For example, a variable declared outside of a block is said to have global scope. By contrast, blocks can be used to create a
+                    local scope. Variables defined insde a block will only be available inside that block.</p>
+            </div>
+            <div>
+                <h3>Template Literals</h3>
+                <p>Template literals are a special type of string that use the backtick character ` to deliminate the string.</p>
+                <p>This allows for interpolation of JS code, meaning that a JS expression can be inserted inside a string and the result will be displayed. The JS expression is placed inside the curly braces with a $ character in front.</p>
+                <p>Template literals can be thought of as super-powered strings since they behave the same way as normal strings, but they have the extra power of interpolation.</p>
+                <p>I WISH I HAD KNOWN THIS EARLIER. We used template literals in CIT 230, but with no introduction. All the JavaScript in that class was foregin and was not covered in my CIT 160 class. This textbook would've helped me understand so much
+                    more. For example, now I know why there were seemingly random dollar signs.</p>
+            </div>
+            <div>
+                <h3>Converting/Parsing</h3>
+                <h4>Converting Strings to Numbers</h4>
+                <p>The best way to change a string to a number is to use the Number method. If the string cannot be converted into a number, then NaN is returned.</p>
+                <h4>Converting Numbers to Strings</h4>
+                <p>The preferred way of changing a number to a string is to use the String function.</p>
+                <p>Another option is to use the toString() method.</p>
+                <h4>Parsing Numbers</h4>
+                <p>The function parseInt() can be used to convert a string representation of a numerical value back into a number.</p>
+                <ol>
+                    <li>If a string starts with a number, parseInt will use the number and ignore any letters that follow.</li>
+                    <li>It will remove anything after the decimal point. This is not rounding, just removing.</li>
+                </ol>
+                <p>parseFloat() converts strings into floating point decimal numbers.</p>
+            </div>
+        </section>
+        <section>
+            <h2>Chp 3: Arrays, Logic, and Loops</h2>
+            <p>Better to use array literals rather than an array constructor function.</p>
+            <h3>Array Methods</h3>
+            <h4>Length Property</h4>
+            <ol>
+                <li>Can be used to find the last item in an array</li>
+                <li>It's mutable, meaning you can manually change it</li>
+            </ol>
+            <h4>Pop, Push, Shift, and Unshift</h4>
+            <p>Pop removes the <em>last</em> item from an array and returns the last item.</p>
+            <p>Shift removes the <em>first</em> item in the array.</p>
+            <p>Push adds a new value to the <em>end</em> of the array.</p>
+            <p>Unshift adds a new item to the <em>beginning</em> of the array.</p>
+            <h4>Merging Arrays</h4>
+            <p>The concat() method can be used to merge an array with one or more arrays. It doesn't change the original array, but rather creates a new array with combined arrays.</p>
+            <p>The spread operator confuses me.</p>
+            <h4>The join() Method</h4>
+            <p>Can be used to turn the array into a string that comprises all the items in the array as a list.</p>
+            <p>While the default is to separate items with a comma, you can choose a different separator by placing it inside the parentheses.</p>
+            <h4>Slicing and Splicing</h4>
+            <p>The slice() method creates a subarray. It's like chopping out a slice of the original array. It's non-destructive.</p>
+            <p>The splice() method removes items from an array and then inserts new items in their place. This is destructive because it permanently changes the array. It can also be used to insert values into an array at a specific index without removing
+                any items if you indicate that zero items are to be removed.</p>
+        </section>
+        <section>
+            <h2>Chp 4: Functions</h2>
+            <h3>Ways to Declare a Function</h3>
+            <h3>Callbacks</h3>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2020 | Ellen Carlson | <a href="https://www.byui.edu/online">BYUI Online Learning</a></p>
+    </footer>
+</body>
+
+</html>
