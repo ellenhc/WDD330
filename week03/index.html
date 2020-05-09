@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week 03 | WDD 330</title>
+    <meta name="description" content="Ellen Carlson's Week 03 WDD 330 portfolio">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <main>
+        <h1>Week 3</h1>
+        <section>
+            <h2>Object Methods: this</h2>
+            <ul>
+                <li>To access an object, a method can use the this keyword.</li>
+                <li>The value of "this" is the obejct "before dot," the one used to call the method.</li>
+                <li>The keyword this can be used in any function. </li>
+                <li>The value of this is evaluated during the run-time, depending on the context.</li>
+                <li>Arrow functions have no "this"</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Ch5: Objects</h2>
+            <ul>
+                <li>It's not recommended to use a constructor function to create an empty object. Object literal notation is the better way because it requires less typing and provide a concise way of initializing an object and its properties in one statement.</li>
+                <li>You can access the properties of an object using the dot notation or bracket notation. Dot notation is more common, but bracket notation is good for when you need to access a nonstandard prperty and method names that don't follow naming
+                    rules.
+                </li>
+                <li>The new Symbol data type can be used as a computed property key. To be honest, I don't really understand this part yet.</li>
+                <li>You can check if properties or methods exist with the in operator, using !== undefined, or the hasOwnProperty() method.</li>
+                <li>You can loop through all of an object's properties using a for in loop. The Objects.keys() method will return an array of all the keys of any object provided. Object.values() and Object.entries() are other options.</li>
+                <li>Properties don't always appear in the order that they were entered. An object is not an ordered list like an array.</li>
+                <li>Any property can be removed from an object using the delete operator.</li>
+                <li>An object can contain other objects (nesting). The values in nested objects can be accessed by referencing each property name in order using either dot or bracket notation.</li>
+                <li>Objects are copied by reference. This means that if a variable is assigned to an object that already exists, it will simply point to the exact same space in memory. So any changes made using either reference will affect the same object.</li>
+                <li>An object literal can be passed as a parameter to a function. The arguments can be provided by name in any order.</li>
+                <li>The this keyword can be used inside methods to gain access to the object's properties.</li>
+                <li>I'm not sure I understand namespacing yet. I get the basic concept, but the example in the book is confusing.
+                </li>
+                <li>I've done some stuff with JSON, as well as the Math and Date objects.</li>
+                <li>I learned a bit about RegExp last semester, but it was never super clear. Apparently the preferred way to create one is use the literal notation of writing the regular expression between forward slashes.
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Ch6: Document Object Model</h2>
+            <ul>
+                <li>The DOM allows you to access elements of a web page and enable interaction with the page by adding and removing elements, changing the order, content and attributes of elements, and even altering how they are styled.</li>
+                <li>The DOM represents an HTML document as a network of connected nodes. It treats everything on a web page as a node. The HTML tag is the root node. JavaScript can be used to access and modify parts of a web page using the document object.</li>
+                <li>I was wondering why the DOM tree examples had extra text nodes. Apparently it's because the DOM also stores any whitespace that in in the HTML document as text nodes.</li>
+                <li>The getElementById() method returns a reference to the element with a unique id attribute that is given as an argument. getElementsByTagName() will return a live node list of all the elements with the tag name that is provided as an argument.
+                    getElementsByClassName() will return a live node list of all elements that have the class name that is supplied as an argument.</li>
+                <li>The document.querySelector() method allows you to use CSS notation to find the first element in the document that matches a CSS selector provided as an argument. So in theory, it can be used instead of document.getElementById() or document.getElementsByClassName(),
+                    but it is not a live node list.</li>
+                <li>The getAttribute() method returns the value of the attribute provided as an argument. The setAttribute() method can change the value of an element's attributes. It takes two arguments: the attribute you wish to change, and the new value
+                    of the attribute.</li>
+                <li>The classList property is a list of all the classes an element has. The add method can be used to add a class to an element without overwriting any classes that already exist. The remove method will remove a specific class form an element.
+                    The toggle method will add a class if an element doesn't have it already, and removes the class if it does have it. The contains method will check to see if an element has a particular class.</li>
+                <li>The innerHTML property returns all the child elements of an element as a string of HTML. It is also writeable and can be used to place a chunk of HTML inside an element. Any code contained with script tags is not executed.</li>
+                <li>Any CSS property names that are separated by dashes must be written in camelCase notation. For example, background-color becomes backgroundColor.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Ch7: Events</h2>
+            <ul>
+                <li>Event listeners are like setting a notification to alert you when something happens. The event listener will let the program know when the event happens, and the program can then respond appropriately. This allows the program to continue
+                    with other tasks while it waits for the event to happen.</li>
+                <li>Inline event handlers are best avoided now that there are better ways.</li>
+                <li>Older event handlers still have the restriction that only one function can be used for each event.</li>
+                <li>Event listeners are the recommended way of dealing with events. The addEventListener() method is called on a node obejct, the node to which the event listener is being applied. It can also be called without a node, in which case it is
+                    applied to the global object.</li>
+                <li>Whenever an event handler is triggered by an event, the callback function is called.</li>
+                <li>The target property returns a reference to the node that fired the event.</li>
+                <li>Types of events:
+                    <ul>
+                        <li>Mouse events (click, mousedown, mouseup, dbclick, mouseover, mouseout, mousemove)</li>
+                        <li>Keyboard events (keydown, keypress, keyup)</li>
+                        <li>Modifier keys (pressing shift, ctrl, alt, and meta)</li>
+                        <li>Touch events (touchstart, touchend, touchmove, touchenter, touchleave, touchcancel)</li>
+                    </ul>
+                </li>
+                <li>An event listener can be removed using the removeEventListener() method.</li>
+                <li>preventDefault() is a method of the event object that can be used inside the callback function to stop the default behavior from happening. Some events do not allow the default behavior to be prevented.</li>
+                <li>When you click on an element, you are actually clicking on all the elements it's nested inside of. An event is said to propagate as it moves from one element to another. Event propagation is the order that the events fire on each element.
+                    There are two forms of event propagation: bubbling and capturing. Bubbling is when the event fires on the element clicked on first, then bubbles up the document tree until it reaches the node. Capturing starts by firing an event on
+                    the root element, then propagates downwards until it reaches the target element that was clicked on.</li>
+                <li>Event delegation can be used to attach an event listener to a parent element in order to capture events that are triggered by its child elements.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Team Activity</h2>
+            <a href="team-activity-group.html">As a team</a>
+            <a href="team-activity-solo.html">On my own</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2020 | Ellen Carlson | <a href="https://www.byui.edu/online">BYUI Online Learning</a></p>
+    </footer>
+</body>
+
+</html>
