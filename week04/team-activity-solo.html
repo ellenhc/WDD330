@@ -1,5 +1,3 @@
-<!--document.body.addEventListener("click", doSomething);-->
-<!--addEventListener('click', () => alert('You Clicked!'));-->
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -12,21 +10,24 @@
         body {
             text-align: center;
             font-family: sans-serif;
+            background-color: #f3f3f3;
         }
         
         .board {
+            margin: auto;
             display: grid;
             grid-template-columns: auto auto auto;
             justify-content: center;
-            align-content: center;
-            align-items: center;
+            margin-bottom: 1em;
         }
         
         .square {
-            height: 8.75em;
-            width: 8.75em;
-            border-right: 2px solid gray;
-            border-bottom: 2px solid gray;
+            height: 1.5em;
+            line-height: 1.5em;
+            width: 1.5em;
+            border-right: 2px solid;
+            border-bottom: 2px solid;
+            font-size: 50px;
         }
         
         .square:nth-child(3n) {
@@ -38,29 +39,60 @@
         }
     </style>
     <script>
-        //how do you know if it was player 1 or player 2 that clicked?
-        document.getElementsByClassName("square").addEventListener("click", )
+        function addEventListeners() {
+            //I was going to use touchend but then I couldn't try it out on my desktop
+            document.getElementById("square1").addEventListener("click", makeMove);
+            document.getElementById("square2").addEventListener("click", makeMove);
+            document.getElementById("square3").addEventListener("click", makeMove);
+            document.getElementById("square4").addEventListener("click", makeMove);
+            document.getElementById("square5").addEventListener("click", makeMove);
+            document.getElementById("square6").addEventListener("click", makeMove);
+            document.getElementById("square7").addEventListener("click", makeMove);
+            document.getElementById("square8").addEventListener("click", makeMove);
+            document.getElementById("square9").addEventListener("click", makeMove);
+        }
+
+        let playerOneTurn = true;
+
+        function makeMove(event) {
+            if (playerOneTurn && this.innerHTML == "") {
+                this.innerHTML = "X";
+                playerOneTurn = false;
+            } else if (this.innerHTML == "") {
+                this.innerHTML = "O";
+                playerOneTurn = true;
+            }
+        }
+
+        function resetBoard() {
+            for (i = 0; i < 9; i++) {
+                if (document.getElementById(`square${i+1}`).innerHTML == "X" || document.getElementById(`square${i+1}`).innerHTML == "O") {
+                    document.getElementById(`square${i+1}`).innerHTML = "";
+                }
+            }
+            playerOneTurn = true;
+        }
     </script>
 </head>
 
-<body>
+<body onload="addEventListeners()">
     <h1>Tic Tac Toe</h1>
 
     <!--Build a 3x3 board in HTML and CSS-->
     <div class="board">
-        <div class="square" id="1"></div>
-        <div class="square" id="2"></div>
-        <div class="square" id="3"></div>
-        <div class="square" id="4"></div>
-        <div class="square" id="5"></div>
-        <div class="square" id="6"></div>
-        <div class="square" id="7"></div>
-        <div class="square" id="8"></div>
-        <div class="square" id="9"></div>
+        <div class="square" id="square1"></div>
+        <div class="square" id="square2"></div>
+        <div class="square" id="square3"></div>
+        <div class="square" id="square4"></div>
+        <div class="square" id="square5"></div>
+        <div class="square" id="square6"></div>
+        <div class="square" id="square7"></div>
+        <div class="square" id="square8"></div>
+        <div class="square" id="square9"></div>
     </div>
 
-    <!--When touched the reset button should remove all of the marks from the board.-->
-    <input type="reset" value="Reset">
+    <!--When touched, the reset button should remove all of the marks from the board.-->
+    <button type="button" onclick="resetBoard()">Reset</button>
 
 </body>
 

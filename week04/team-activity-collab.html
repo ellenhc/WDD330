@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        
+        td:first-of-type {
+            border-left: 0px;
+            border-top: 0px;
+        }
+        
+        td:nth-child(2) {
+            border-top: 0px;
+        }
+        
+        td:last-of-type {
+            border-top: 0px;
+            border-right: 0px;
+        }
+        
+        tr:nth-child(3) td {
+            border-bottom: 0px;
+        }
+        
+        td {
+            cursor: pointer;
+            height: 100px;
+            width: 100px;
+            border: 1px solid pink;
+            font-size: 50px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function addEventListeners() {
+            document.getElementById("topLeft").addEventListener("click", addPiece);
+            document.getElementById("topMiddle").addEventListener("click", addPiece);
+            document.getElementById("topRight").addEventListener("click", addPiece);
+            document.getElementById("middleLeft").addEventListener("click", addPiece);
+            document.getElementById("middle").addEventListener("click", addPiece);
+            document.getElementById("middleRight").addEventListener("click", addPiece);
+            document.getElementById("bottomLeft").addEventListener("click", addPiece);
+            document.getElementById("bottomMiddle").addEventListener("click", addPiece);
+            document.getElementById("bottomRight").addEventListener("click", addPiece);
+        }
+
+
+        let isPlayerOnesTurn = true;
+
+        function addPiece(event) {
+            console.log(event.target);
+            if (isPlayerOnesTurn && event.target.innerHTML == "") {
+                console.log("If statement");
+                event.target.innerHTML = "O";
+            } else if (event.target.innerHTML == "") {
+                event.target.innerHTML = "X";
+                console.log("If statement");
+            }
+            isPlayerOnesTurn = !isPlayerOnesTurn;
+        }
+
+        function resetBoard() {
+            document.getElementById("topLeft").innerHTML = "";
+            document.getElementById("topMiddle").innerHTML = "";
+            document.getElementById("topRight").innerHTML = "";
+            document.getElementById("middleLeft").innerHTML = "";
+            document.getElementById("middle").innerHTML = "";
+            document.getElementById("middleRight").innerHTML = "";
+            document.getElementById("bottomLeft").innerHTML = "";
+            document.getElementById("bottomMiddle").innerHTML = "";
+            document.getElementById("bottomRight").innerHTML = "";
+            isPlayerOnesTurn = true;
+        }
+    </script>
+
+
+</head>
+
+<body onload="addEventListeners()">
+
+    <table id="board">
+        <tr id="row1">
+            <td id="topLeft"></td>
+            <td id="topMiddle"></td>
+            <td id="topRight"></td>
+        </tr>
+        <tr id="row2">
+            <td id="middleLeft"></td>
+            <td id="middle"></td>
+            <td id="middleRight"></td>
+        </tr>
+        <tr id="row3">
+            <td id="bottomLeft"></td>
+            <td id="bottomMiddle"></td>
+            <td id="bottomRight"></td>
+        </tr>
+    </table>
+    <button id="reset" onclick="resetBoard()">Reset</button>
+
+</body>
+
+</html>
