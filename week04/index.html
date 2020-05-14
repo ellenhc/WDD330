@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week 04 | WDD 330</title>
+    <meta name="description" content="Ellen Carlson's Week 04 WDD 330 portfolio">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <main>
+        <h1>Week 4</h1>
+        <section>
+            <h2>Forms</h2>
+            <p>Apparently it's becoming more common to use JavaScript to process information in a form on the 'frontend.' That's something I didn't know before, although I did know a bit about validation.</p>
+            <p>So pretty soon after the chapter begins, it mentions usability and accessibility. In my last class, we were taught that it was better to use labels instead of placeholders because placeholders are problematic for screen readers. Would it be
+                better to have a default text inside the input field that then disappears if the user clicks it?</p>
+            <p>Using a for loop, you can iterate over a collection of checkbox elements. The checkbox objects can only have the values true or false.</p>
+            <p>I don't really understand why a hidden input field would be useful. Would one example be including information the user previously submitted in a form from a previous visit to the website?</p>
+            <p>HTML5 has its own validation API, but it isn't supported by all browsers yet. We can also use JavaScript to implement custom form validation.</p>
+        </section>
+        <section>
+            <h2>OOP</h2>
+            <p>OOP is a style of programming that involves separating the code into objects that have properties and methods. This allows for encapsulation. Encapsulation keeps the inner working of an object hidden inside with only the essential functionailities
+                being exposed to the end user. OOP also allows for polymorphism, which is that various objects can share the same method. OOP also includes inheritance, which means that we can take an object that already exists and inherit all its properties
+                and methods.</p>
+            <p>I honestly didn't know until last week that you could do OOP with JavaScript. I'm currently in a Java class right now so I really understand when the textbook says that Java is a "class-based language."</p>
+            <p>JavaScript contains a nmber of built-in constructor functions such as Object, Array, and Function that can be used to create objects, array, and functions instead of literals. However, it's almost always recommended to use literals for arrays.</p>
+            <p>By convention, the names of constructor functions or class declarations are capitalized.</p>
+            <p>The ES6 class declarations are preferable to the constructor function syntax because they are more succint, easier to read, and all code in a class definition is implicitly in strict mode.</p>
+            <p>The static keyword can be used in class declarations to create a static method. These are called class methods in other languages. Static methods are not available to instances of the class.</p>
+            <p>Prototypal inheritance means that every class has a prototype property that is shared by every instance of the class. So any properties or methods of a class's prototype can be accessed by every object instantiated by that class.</p>
+            <p>All classes and constructor functions have a prototype property that returns an object. There are a number of ways to find the prototype of an object: the constructor function's prototype property, Object.getPrototypeOf(), proto property,
+                isPrototypeOf().</p>
+            <p>It is not possible to overwrite the prototype by assigning it to a new object literal if class declarations are used. It is possible to do this if constructor functions are used, but it sounds problematic. An object instance can overwrite
+                any properties or methods inherited from its prototype by simply assigning a new value to them.</p>
+            <p>The prototype can be used to add any new properties and methods after the class has been declared. It should be used to define any properties that will remain the same for every instance of the class.</p>
+            <p>Never use arrays or objects as a default value in prototype.</p>
+            <p>By default, an object's methods are public in JS. This means they can be queried directly and changed by assignment. But giving users or external services too much access to properties and methods could be dangerous.</p>
+            <p>Properties of objects in JavaScript are said to beenumerableornon-enumerable. If they aren't enumerable, this means they will not show up when a for-in loop is used to loop through an object’s properties and methods.</p>
+            <p>A class can inherit from another class using the extends keyword in a class declaration.</p>
+        </section>
+        <section>
+            <h2>Modern JavaScript</h2>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2020 | Ellen Carlson | <a href="https://www.byui.edu/online">BYUI Online Learning</a></p>
+    </footer>
+</body>
+
+</html>
