@@ -65,9 +65,7 @@
 
         function resetBoard() {
             for (i = 0; i < 9; i++) {
-                if (document.getElementById(`square${i+1}`).innerHTML == "X" || document.getElementById(`square${i+1}`).innerHTML == "O") {
-                    document.getElementById(`square${i+1}`).innerHTML = "";
-                }
+                document.getElementById(`square${i+1}`).innerText = "";
             }
             playerOneTurn = true;
         }

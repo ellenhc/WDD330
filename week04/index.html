@@ -48,11 +48,53 @@
         </section>
         <section>
             <h2>Modern JavaScript</h2>
+            <p>A JavaScript library is a piece of code that provides several methods that make it easier to acheive common tasks. jQuery is the most popular of all the JavaScript libraries used today.</p>
+            <p>The jQuery library uses the $ symbol as a convenient alias for the global jQuery object that contains all of jQuery's methods.</p>
+            <p>Underscore and Lodash are other libraries. They both provide a large number of utility functions under the namespace _ character. These libraries are very similar since Lodash started as a fork of Underscore. Basically, Lodash does everything
+                Underscore does, but also adds some extra features.</p>
+            <p>Disadvantages to using libraries:
+                <ul>
+                    <li>You need to include the code for the library as well as your own code. This increases the amount of code that needs to be downloaded by a website.</li>
+                    <li>Libraries might fail to implement the functionality in the precise way that you want it to perform.</li>
+                    <li>Using a library can also make your code slower than using plain vanilla JavaScript because there are often more lines of code in using the abstracted functions in a library rather than writing a direct implementatio in just JavaScript.</li>
+                </ul>
+            </p>
+            <p>VanillaJS showcases plain JavaScript as if it were a library, highlighting the many tasks that can be accomplished with a similar amount of code but much better performance. But, libraries are still popular, especially when supporting older
+                browsers.</p>
+            <p>A module is a self-contained piece of code that provides functions and methods that can be then used in other files and by other modules. This helps keep code organized in separate, resusable files, which improves code maintainability. The
+                code in a module should have a single purpose, and group together functions with distinct functionality.</p>
+            <p>Two pieces of code are said to be tightly coupled if one relies on the other to run.</p>
+            <p>Default exports refer to a single variable, function or class in a module that can be imported without having to be explicitly named. Having more than one default export will result in a syntax error.</p>
+            <p>Model-View-Controller (MVC) is a design pattern that's been used for a long time in server-side languages. It's a common way of designing software. Lately it's been used in JavaScript code to make it easier to organize large-scale web apps.
+                Models are objects that implement the functionality for creating, reading, updating, and deleting specific pieces of information about the application. Views provide a visual representaiton of the model showing all the relevant information.
+                Controllers link models and views together by communicating between them. They also respond to events.</p>
+            <p>Aurelia, Angular, and Ember are MV* Frameworks.</p>
+            <p>Many MVC frameworks use templating languages to insert dynamic data into the page. Templates can be written in HTML or another language that compiles into HTML. Templating languages allow HTML to be separated from the JS program, making maintenance
+                easier because they're no longer tightly coupled.</p>
+            <p>Templating languages often have a mechanism for inserting dynamic data into the HTML. These tend to fall into two camps: placing dynamic code inside curly braces {{}} or inside the special "%>" tags.</p>
+            <p>React and Vue.js are libraries that deal with just the view layer of MVC. They have the single goal of making it easierto update the user interface while also keeping what is displayed synchronized with underlying data that it's representing.</p>
+            <p>Package managers allow developers to download modules from a central repository. A package is just a directory with one or more files of code, as well as a package.json file that contains information about the code in the package.</p>
+            <p>The Node Package Manager (npm) allows you to install JavaScript packages onto your machine. To find a package, you can use the search command. The npm init command is used when you start a project. To install a package locally, the install
+                command is used. </p>
+            <p>Content Delivery Networks (CDNs) are systems of distributed servers that can deliver web resources to a user based on their geographic location. This means they're able to deliver content quickly and efficiently with a high degree of availability.</p>
+            <p>You can combine all the scripts into a single minified and compressed file. This file is often named 'bundle.min.js' to signify that it's a number of files bundled together and has also been minified.</p>
+            <p>The optimal position for the script tag is right at the end of the page, just before the closing body tag. This will ensure the page has finished loading before the JavaScript code is processed.</p>
+            <p>Code transpilers take JS code and turn it into JS code. A code transpiler allow syou to write your code in the lastest version of ECMAScript and then converts it into an older variant of JavaScript that is compatible with most browsers. Babel
+                is the most popular transpiler.</p>
+            <p>Minification is the process of removing any unnecessary characters from your code to reduce the file size. This includes all comments, whitespace, and other characters that are superfluous. Some popular minifiers are YUI Compressor, Google's
+                Closure, and UglifyJs. FIles can also be compressed on the server using a file-compression tool such as gzip.</p>
+            <p>The root of any folder structure should contain the index.html file. Code that needs to be transpiled is often placed inside a folder called src. The output of any transpiled code from the src folder is usually placed inside a dist folder.
+                Any modules are usually stored in the lib folder. Third-party libraries are often placed inside a vendor folder.</p>
+            <p>Modular organization groups files by feature rather than type. So instead of placing all the JS files in one place, we would put all the files associated with a certain feature together in a single file.</p>
+            <p>Webpack is a module bundler that takes all the JavaScript files used in your project and bundles them altogether in one file.</p>
         </section>
         <section>
             <h2>Team Activity</h2>
             <p><a href="team-activity-solo.html">Solo attempt</a></p>
             <p><a href="team-activity-collab.html">Team Collaboration</a></p>
+        </section>
+        <section>
+            <h2>Report</h2>
         </section>
     </main>
     <footer>
