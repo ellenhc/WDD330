@@ -27,7 +27,7 @@
             width: 1.5em;
             border-right: 2px solid;
             border-bottom: 2px solid;
-            font-size: 50px;
+            font-size: 75px;
         }
         
         .square:nth-child(3n) {
@@ -40,7 +40,6 @@
     </style>
     <script>
         function addEventListeners() {
-            //I was going to use touchend but then I couldn't try it out on my desktop
             document.getElementById("square1").addEventListener("click", makeMove);
             document.getElementById("square2").addEventListener("click", makeMove);
             document.getElementById("square3").addEventListener("click", makeMove);
