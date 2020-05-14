@@ -1,0 +1,67 @@
+<!--document.body.addEventListener("click", doSomething);-->
+<!--addEventListener('click', () => alert('You Clicked!'));-->
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Team Activity | Week04</title>
+    <meta name="description" content="Ellen Carlson's Week 04 WDD 330 portfolio">
+    <style>
+        body {
+            text-align: center;
+            font-family: sans-serif;
+        }
+        
+        .board {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+        
+        .square {
+            height: 8.75em;
+            width: 8.75em;
+            border-right: 2px solid gray;
+            border-bottom: 2px solid gray;
+        }
+        
+        .square:nth-child(3n) {
+            border-right: none;
+        }
+        
+        .square:nth-child(n+7) {
+            border-bottom: none;
+        }
+    </style>
+    <script>
+        //how do you know if it was player 1 or player 2 that clicked?
+        document.getElementsByClassName("square").addEventListener("click", )
+    </script>
+</head>
+
+<body>
+    <h1>Tic Tac Toe</h1>
+
+    <!--Build a 3x3 board in HTML and CSS-->
+    <div class="board">
+        <div class="square" id="1"></div>
+        <div class="square" id="2"></div>
+        <div class="square" id="3"></div>
+        <div class="square" id="4"></div>
+        <div class="square" id="5"></div>
+        <div class="square" id="6"></div>
+        <div class="square" id="7"></div>
+        <div class="square" id="8"></div>
+        <div class="square" id="9"></div>
+    </div>
+
+    <!--When touched the reset button should remove all of the marks from the board.-->
+    <input type="reset" value="Reset">
+
+</body>
+
+</html>
