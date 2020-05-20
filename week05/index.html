@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week 05 | WDD 330</title>
+    <meta name="description" content="Ellen Carlson's Week 05 WDD 330 portfolio">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <main>
+        <h1>Week 05</h1>
+        <section>
+            <h2>Chapter 10: Testing and Debugging</h2>
+            <section>
+                <h3>Errors, Exceptions, and Warnings</h3>
+                <p>System error: a problem with the system or external devices with which the program is interacting</p>
+                <p>Programmer error: the program contains incorrect syntax or faulty logic</p>
+                <p>User error: the user has entered data incorrectly, which the program is unable to handle</p>
+                <p>Exceptions: errors that produce a return value that can then be used by the program to deal with the error</p>
+                <p>Stack trace: produced by an exception, it's a sequence of functions or method calls that lead to the point where the error occurred.</p>
+                <p>Warning: can occur if there's an error in the code that isn't enough to cause the program to crash</p>
+            </section>
+            <section>
+                <h3>Strict Mode</h3>
+                <p>A strict mode produces more exceptions and warnings and prohibits the use of some deprecated features. It considers coding practices that were previously accepted as just being 'poor style' as actual errors.</p>
+                <p>Strict mode encourages a better quality of JavaScript to be written so its use is recommended.</p>
+                <p>To use strict mode, add the string 'use strict'; to the first line of a JavaScript file.</p>
+                <p>Modules are in strict mode by default.</p>
+            </section>
+            <section>
+                <h3>Feature Detection</h3>
+                <p>The recommended way to determine browser support for a feature is to use feature detection.</p>
+                <p>This is done using an if statement to check whether an object or method exists before trying to actually call the method.</p>
+                <p>Modernizr and Can I Use? are useful resources for checking which features are currently supported in different browsers.</p>
+                <p>The 'old-school' way of checking browser support is known as browser sniffing. This involves using the string returned by the window.navigator.userAgent property to identify the user's browser. The relevant methods can then be used for
+                    that browser. However, this approach is not recommended.</p>
+            </section>
+            <section>
+                <h3>Debugging in the Browser</h3>
+                <p>Debugging: the process of finding out where bugs occur in the code and then dealing with them</p>
+                <p>Breakpoints halt the progress of the code to allow the programmer to view the value of different variables at that point in the program.</p>
+                <p>The alert() method is the most basic form of debugging. It stops a program from running until OK is clicked.</p>
+                <p>The console.log() method can be used to log the value of variables at different stages of the program, although it will not actually stop the execution of the program in the same way as alert() does.</p>
+                <p>The console.trace() method will log an interactive stack trace in the console. This will show the functions that were called in the lead up to an exception occurring while the code is running.</p>
+                <p>The dubugger keyword will create a breakpoint in your code that will pause the exception of the code and allow you to see whre the program is currently up to.</p>
+            </section>
+            <section>
+                <h3>Error Objects</h3>
+                <p>An error object can be created by the host environment when an exception occurs, or it can be created in the code using a constructor function const error = new Error();</p>
+                <p>There are 7 more error objects used for specific errors:
+                    <ul>
+                        <li>EvalError: used to identify errors when using the global eval() function</li>
+                        <li>RangeError: thrown when a number is outside an allowable range of values</li>
+                        <li>ReferenceError: thrown when a reference is made to an item that doesn't exist</li>
+                        <li>SyntaxError: thrown when there's an error in the code's syntax</li>
+                        <li>TypeError: thrown when there's an error in the type of value used</li>
+                        <li>URIError: thrown when there's a problem encoding or decoding the URI</li>
+                        <li>InternalError: a non-standard error that is thrown when an error occurs in the JavaScript engine</li>
+                    </ul>
+                </p>
+                <p>All error objects have a number of properties, but they're often used inconsistently across browsers. The name, message, and stack properties are generally safe to use. The name property returns the name of the error constructor function
+                    used as a string. The message property returns a description of the error and should be provided as an argument to the Error constructor function. The stack property will return a stack trace for that error.</p>
+                <h4>Throwing Exceptions</h4>
+                <p>It's also possible to throw your own exceptions using the throw keyword. It is best practice to throw an error object that can then be caught in a catch block.</p>
+            </section>
+            <section>
+                <h3>Exception Handling</h3>
+                <p>It is possible to handle exceptions gracefully by catching the error. </p>
+                <p>If you suspect a piece of code will result in an exception, wrap it in a try block. This will run the code inside the block as normal, but if an exception occurs it will pass the error object that is thrown onto a catch block. The code
+                    inside the catch block will only run if an exception is thrown inside the try block. A finally block can be added after a catch block.</p>
+            </section>
+            <section>
+                <h3>Tests</h3>
+                <p>Writing good tests means your code will be less brittle as it develops, and any errors will be identified early on.</p>
+                <p>Test-driven development: the process of writing tests before any actual code. So you begin by writing tests, then write code to pass the tests, then refactor the code, retest the code, etc.</p>
+                <p>Testing frameworks provide a structure to write meaningful tests and then run them. Jest is a common testing framework.</p>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2020 | Ellen Carlson | <a href="https://www.byui.edu/online">BYUI Online Learning</a></p>
+    </footer>
+</body>
+
+</html>
