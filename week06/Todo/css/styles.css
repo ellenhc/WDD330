@@ -8,6 +8,7 @@
 body {
     background-color: #05668d;
     font-family: 'Open Sans', sans-serif;
+    margin: 0 1rem 0 1rem;
 }
 
 h1,
@@ -22,6 +23,7 @@ h6 {
 main h1 {
     text-align: center;
     color: white;
+    margin-bottom: 1rem;
 }
 
 .toDoList {
@@ -48,21 +50,29 @@ main h1 {
     width: 100%;
     height: 2rem;
     padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .toDoList div:last-child {
     margin-bottom: 0;
 }
 
+input[type=checkbox] {
+    margin-right: 0.25rem;
+}
+
+.delete:hover {
+    font-weight: bold;
+}
+
 .toDoList,
 .addForm,
 .stats {
-    width: 90%;
     margin: auto;
 }
 
-footer {
-    width: 100%;
+footer .addForm {
     margin-top: 1rem;
 }
 
@@ -85,7 +95,20 @@ button[type=submit]:hover {
     background-color: #e6e6e6;
 }
 
+#all-tasks,
+#active-tasks {
+    margin-right: 0.25rem;
+}
 
-/*Radio buttons*/
+#all-tasks:hover,
+#all-tasks:active,
+#active-tasks:hover,
+#active-tasks:active,
+#complete-tasks:hover,
+#complete-tasks:active {
+    font-weight: bold;
+}
 
-input[type=checkbox] {}
+.delete {
+    margin-left: 5rem;
+}

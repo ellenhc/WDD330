@@ -10,7 +10,7 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
 
-<body onload="getStats()">
+<body>
 
     <header></header>
 
@@ -21,20 +21,19 @@
         </div>
         <div class="stats">
             <div><span id="incomplete-tasks"></span> Tasks Left</div>
-            <div id="all-tasks" onclick="showAllTasks()">All</div>
-            <div id="active-tasks" onclick="showActiveTasks()">Active</div>
-            <div id="complete-tasks" onclick="showCompletedTasks()">Completed</div>
+            <div id="all-tasks">All |</div>
+            <div id="active-tasks">Active |</div>
+            <div id="complete-tasks">Completed</div>
         </div>
     </main>
 
     <footer>
         <form class="addForm">
-            <input type="text" id="add-task" name="add-task">
-            <button type='submit' onclick="createTask(event)">+</button>
+            <input type="text" id="add-task" name="add-task" placeholder="Add a task">
+            <button type='submit' id="submit">+</button>
         </form>
     </footer>
-    <script src="js/ToDos.js"></script>
-    <!--<script src="ToDos.js" type="module"></script>-->
+    <script src="js/main.js" type="module"></script>
 </body>
 
 </html>
