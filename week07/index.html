@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week 07 | WDD 330</title>
+    <meta name="description" content="Ellen Carlson's Week 07 WDD 330 portfolio">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <h1>Week 07</h1>
+
+    <section>
+        <h2>Further Functions</h2>
+        <h3>Function properties and methods</h3>
+        <p>Functions are first-class objects so they can be passed around in the same way as every other value. They can have properties and methods.</p>
+        <p>The call() method can be used to set the value of "this" inside a function to an object that is provided as the first argument.</p>
+        <p class="question">In the example of sayHello(), I don't understand why it's better to do sayHello.call(clark) instead of sayHello(clark). Perhaps the sayHello() function doesn't need any parameters and that's why the call is necessary?</p>
+        <p>Memoization is result caching.</p>
+        <h3>Immediately Invoked function expressions</h3>
+        <p>An IIFE is an anonymous function that is invoked as soon as it's defined.</p>
+        <p>IIFEs are a useful way of performing a task while keeping any variables wrapped up within the scope of the function so the global namepsace is not polluted.</p>
+        <p>There is no way to remove a variable from a scope once it's been declared.</p>
+        <p>Temporary variables should be inside an IIFE because they only exist while the IIFE is invoked.</p>
+        <p>An IIFE can be used to set up any initalization code that there'll be no need for again. Since it'll be invoked once, there's no need to create any reusable functions, and it can be used to set up any variables, objects, and event handlers when
+            the page loads.</p>
+        <p>An IIFE can be used to enclose a block of code inside its own private scope so it doesn't interfere with any other part of the program.</p>
+        <h3>Self-defining functions</h3>
+        <p>A function is able to not only call itself, but define itself, and even redefine itself. This is done by assigning an anonymous function to a variable that has the same name as the function.</p>
+        <p>If the function is also assigned to another variable, this variable will maintain the original function definition and not be rewritten. This is because the original function is assigned to a variable, then within the function, a variable with
+            the same name as the function is assigned to a different function.</p>
+        <p>If any properties have previously been set on the function, these will be lost when the function redefines itself.</p>
+        <p>Lazy Definition Pattern: the initialization can be done the first time it's called, then the function can be redefined to what you want it to be for every subsequent invocation.</p>
+        <p>Init-time branching can be used with the feature detection to create functions that rewrite themselves.</p>
+        <h3>Recursive functions</h3>
+        <p>A recursive function is one that invokes itself until a certain condition is met. It's useful when iterative processes are involved.</p>
+        <h3>Callbacks</h3>
+        <p>Callbacks are functions passed to other functions as arguments and then invoked inside the function they are passed to.</p>
+        <p>They can be used to facilitate event-driven asynchronous programming. Code is able to run out of order, or asynchronously, when instead of waiting for an event to occur, a callback can be created that's invoked when the event happens.</p>
+        <p>By using callbacks, we ensure that waiting for these tasks to complete doesn't hold up execution of other parts of the program. Once the task has been completed, the callback will be invoked before returning to the rest of the program.</p>
+        <p>JavaScript event-loop <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">video</a></p>
+        <p>JavaScript is single-threaded, so only one task can happen at once.</p>
+        <p>A promise represents the future result of an asynchronous operation. They don't do anything that can't already be achieved with callbacks, but they simplify the process and avoid the convoluted code that can result from using multiple callbacks.</p>
+        <p>When a promise is created, it calls an asynchronous operation and is then said to be pending. It remains in this statw while the operation is taking place. At this stage, the promise is said to be unsettled. Once the operation has completed, the
+            promise is said to be settled.</p>
+        <p>Settled promises can either be resolved (the asynchronous operation was completed successfully) or rejected (the asynchronous operation didn't work as expected, wasn't successfully completed or resulted in an error). Both these outcomes will return
+            any relevant data.</p>
+        <p>A promise is created using a constructor function. This takes a function called an executor as an argument. The executor initializes the promise and starts the asynchronous operation.</p>
+        <p>Once a promise has been settled, the then() method can be used to deal with the outcome.</p>
+        <p>Async functions are preceded by the async keywod and allow you to write asynchronous code as if it was synchronous. This is achieved using the wait operator before an asynchronous function.</p>
+        <p>Functions can also return a function.</p>
+        <h3>Closures</h3>
+        <p>A closure is a reference to a variable that was created inside the scope of another function, but is then kept alive and used in another part of the program.</p>
+        <p>A closure is formed when the inner function is returned by the outer function, maintaining access to any variables declared inside the enclosing function.</p>
+        <p>To define a generator function, an asterisk symbol is placed after the function declaration.</p>
+        <p>Calling a generator function doesn't actually run any of the code in the function; it returns a Generator object that can be used to create an iterator that implements a next() method that returns a value every time the next() method is called.</p>
+        <p>Generator functions employ the yield keyword that is used to return a value. By using yield, the state of the value returned is remembered the next time yield is called.</p>
+        <h3>Functional Programming</h3>
+        <p>JavaScript supports functional-style programming due to functions being first-class objects.</p>
+        <p>A key aspect of functional programming is its use of pure functions. The return value of a pure function should only depend on the values provided as arguments. A pure function doesn't change any values or data elsewhere in the program. Given
+            the same arguments, a pure function will always return the same result. Pure functions must also have at least one argument and a return value.</p>
+        <p>Higher-order functions are functions that accept another function as an argument, or return another function as a result, or both.</p>
+        <p>Closures are used extensively in higher-order functions because they allow us to create a generic function that can be used to then return more specific functions based on its arguments.</p>
+        <p>Currying is a process that involves the partial application of functions. A function is said to be curried when not all arguments have been supplied to the function, so it returns another function that retains the arguments already provided, and
+            expects the remaining arguments that were omitted when the original function was called. A final result is only returned once all the expected arguments have eventually been provided.</p>
+        <p>Currying relies on higher-order functions that are able to return partially applied functions. All curried functions are higher-order functions because they return a function, but not all higher-order functions are curried.</p>
+    </section>
+    <section>
+        <h2>AJAX</h2>
+        <h3>Clients and Servers</h3>
+        <p>Ajax allows JavaScript to request resources from a server on behalf of the client.</p>
+        <h3>The Fetch API</h3>
+        <p>The Fetch API is a living standard for requesting and sending data asynchronously across a network.</p>
+        <p>The Fetch API uses promises to avoid callback hell.</p>
+        <p>The Fetch API provides a global fetch() method that only has one mandatory argument, which is the URL of the resource you wish to fetch.</p>
+        <p>Response objects have a number of properties and methods that allow us to process the response effectively. Each response objet has an ok property that checks to see if the response is successful. Some other properties of the Response object are:
+            headers, url, redirected, and type.</p>
+        <p>The redirect() method canbe used to redirect to another URL. It creates a new promise that resolves to the response from the redirected URL.</p>
+        <p>The text() method takes a stream of text form the response, reads it to completion, and then returns a promise that resolves to a USVSting object that can be treated as a string in JavaScript.</p>
+        <p>The blob() method is used to read a file of raw data, such as an image or spreadsheet. Once it has read the whole file, it returns a promise that resolved with a blob object.</p>
+        <p>JSON is the most common format for AJAX responses. The json() method is used to deal with these by transforming a stream of JSON data into a promise that resolves to a JavaScript object.</p>
+        <p>You can also create your own response objects using a constructor function. The first argument is the data that is to be returned. The second argument is an object that can be used to provide values for any of the properties.</p>
+        <p>Providing a request object as an argument allows a number of options to be set about the request. Request objects are created using the Request() constructor, and include the following properties: url, method, headers, mode, cache, credentials,
+            and redirect.</p>
+        <p>HTTP headers are used to pass on any additional information about a request or response. Typical information contained in headers includes the file-type of the resource, cookie information, authentication information, and when the response was
+            last modified.</p>
+        <p>Fetch API has a Headers interface which can be used to create a Headers object, which can then be added as a property of Request and Response objects. A new Headers instance is created using a constructor function. The constructor function can
+            be provided with an optional argument containing any initial header values.</p>
+        <h3>Sending Information</h3>
+        <p>Ajax can be used to rend information. This can be a variety of formats, but is usually a JSON string.</p>
+        <h3>FormData</h3>
+        <p>The Fetch API includes the FormData interface, which makes it much easier to submit information in forms using Ajax.</p>
+        <p>A FormData instance is created using a constructor function. </p>
+        <p>If a form is passed to this constructor function as an argument, the form data instance will serialize all the data automatically, ready to be sent using Ajax.</p>
+        <p>The FormData instance will automatically create the necessary settings required, and take care of all the hard work if any file uploads are present in the form.</p>
+        <h3>A Living Standard</h3>
+        <p>Because the Fetch API is a living standard, it means that it's still subject to change as developers, browser vendors, and end-users provide feedback about how it works.</p>
+        <p>If you don't want to 'live on the edge,' you can use a library to take care of Ajax requests. The library will use the most up-to-date methods if it's supported, and fallback on older methods if required.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2020 | Ellen Carlson | <a href="https://www.byui.edu/online">BYUI Online Learning</a></p>
+    </footer>
+</body>
+
+</html>

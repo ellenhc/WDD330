@@ -22,3 +22,7 @@ h6 {
 section {
     margin-bottom: 2em;
 }
+
+.question {
+    color: navy;
+}
