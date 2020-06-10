@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Quicksand&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#grid-container {
+    background-color: white;
+    color: gray;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: radial-gradient(circle, rgba(24, 6, 6, 1) 0%, rgba(12, 3, 3, 1) 100%);
+}
+
+body>div {
+    margin: auto;
+    width: 70%;
+    background-color: #f3f3f3;
+    padding: 1rem;
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) {}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) {
+    #grid-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) {
+    #grid-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (min-width: 1200px) {
+    #grid-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
