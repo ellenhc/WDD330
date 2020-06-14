@@ -16,6 +16,54 @@
     </header>
     <main>
         <section>
+            <h2>Readings</h2>
+            <h3>CSS3 Transforms and Transitions</h3>
+            <p>The transform property lets you translate, rotate,scale, and/or skew any element on the page.</p>
+            <p>Translation functions allow you to move theelements left, right, up, or down. You’re moving elements without impacting theflow of the document, unlike position: relative.</p>
+            <p>Transforms don’t work on inline elements.</p>
+            <p>The scale(x,y) function scales an element by thedefined factors horizontally then vertically. A scaled element will growoutwards from or shrink inwards towards its center so the element’s center willstay in the same place as its dimensions
+                change.
+            </p>
+            <p>To declare multiple transformations, provide a space-separatedlist of transform functions.</p>
+            <p>The rotate() function rotates an element around thepoint of origin by a specified angle value. Positive degrees move it clockwiseand negative moving counterclockwise.</p>
+            <p>The skew(x,y) function specifies a skew along the xand y axes.</p>
+            <p>The transform-origin property allows you to controlthe origin from which the transforms are applied.</p>
+            <p>The order of transform functions does matter. Forexample, if you rotate before translating, your translate direction will be onthe rotated axis.</p>
+            <p>To support older browsers, position:relative can beused to mimic translation. Elements can be scaled by altering its width andheight, or changing the font-size.</p>
+            <p>To use transitions, declare the original state ofthe element in the default style declaration. Then declare the final state ofyour transitioned element. Then include the transition function in your defaultstyle declaration using the transition
+                properties.
+            </p>
+            <p>To support older WebKit browsers, you need toinclude the -webkit- prefix for all of your transition properties.</p>
+            <p>The transition-duration property can be specifiedin either seconds or milliseconds.</p>
+            <p>CSS animations allows you to control each step ofan animation via keyframes. A keyframe is a snapshot that defines a starting orend point of any smooth transition. So while transitions essentially limit youto a first and last keyframe, CSS
+                animations allow you to add any number ofkeyframes in between.</p>
+            <h3>Canvas, SVG, and Drag and Drop</h3>
+            <p>With HTML5’s Canvas API, you can draw anything all throughJavaScript. To begin using canvas, you need to add a canvas element to thepage. The text inside the tags will only be shown if the canvas element is notsupported by the user’s browser.
+                The element will need an id so it can be grabbedfrom the DOM. The width and height attributes will also need to be set for thecanvas element. This is not done in the CSS because the canvas element willdefault to a width of 300 and a height
+                of 150.</p>
+            <p>The canvas context is the place where your drawingis rendered. Must then set strokeStyle or fillStyle properties.</p>
+            <p>In the canvas coordinate system, the top-leftcorner is (0,0).</p>
+            <p>Paths create a blueprint for your lines, arcs, and shapes. Paths are invisible until given a stroke. Complex shapes need the path laid out, a stroke added to the path, and the path must be filled.</p>
+            <p>The Canvas API's toDataURL method can be used to save drawings. It creates a URL with the image in it. You can then right-click the image to save it.</p>
+            <p>Images can be drawn onto the canvas element using the drawImageToCanvas method. First, an event listener needs to be added to ensure that the element has loaded before we attempt to redraw. Then the image can be grabbed using getElementById.</p>
+            <p>While redrawing an image element from the page to canvas is really no different from using an img element, once the image is on the canvas it can be manipulated. An ImageData object contains data information with four values.</p>
+            <p>Information leakage can occur if scripts from one domain can access information from images from another domain. To mitigate this, canvas elements are defined with a flag indicating whether they are origin-clean.</p>
+            <p>A major downside of canvas in its current form is its lack of accessibility. The canvas does not create a DOM node, is not a text-based format, and is thus essentially invisible to tools such as screen readers. SVG images are available via
+                the DOM so screen readers can see what's present in an SVG object through its DOM node.</p>
+            <p>SVGs are scalable vector graphics. Vector images preserve their quality even when blown up or shrunk down.</p>
+            <p>XML is eXtensible Markup Language. It's a system meant to annotate text.</p>
+            <p>Raphael is an open-source JavaScript library that makes drawing and animating with SVG easier.</p>
+            <p>Canvas operates in immediate mode. This means that if you want to add more to the canvas, you're unable to simply add to whatever's already there. You must redraw the new shape from scratch instead. But because what's drawn on the canvas isn't
+                accessible via the DOM, canvas is much faster than SVG. SVG is accessible because its in retained mode, meaning that the structure of the image is preserved in the XML document that describes it. However, since SVG is a file format, you
+                can't manipulate SVG images the way you can manipulate pixels on canvas.</p>
+            <p>The Drag and Drop API allows us to specify that certain elements are draggable and then specify what should happen when these draggable elements are dragged over or dropped onto other elements on the page. For example, dragging files from
+                your computer into a web page.</p>
+            <p>To use Drag and Drop, first set the draggable attribute on any HTML elements you'd like to be draggable. Second, add an event listener for the dragstart event on any draggable HTML elements. Third, add an event listner for the dragover and
+                drop events on any elements that you want to have accept dropped items.</p>
+            <p>Draggable is not a Boolean attribute, so you have to explicitly set it to true.</p>
+            <p>DataTransfer objects let us define two pieces of information: the type of data we're saving of the draggable element, and the value of the data itself.</p>
+        </section>
+        <section>
             <h2>Team Activity Prep</h2>
             <p>Watched <a href="https://www.youtube.com/watch?v=DHvZLI7Db8E">JavaScript Promises in 10 Minutes</a></p>
             <p>Watched <a href="https://www.youtube.com/watch?v=V_Kr9OSfDeU">JavaScript Async Await</a></p>
@@ -25,7 +73,8 @@
         </section>
         <section>
             <h2>Team Activity</h2>
-            <p>Team Activity<a href="team-activity-solo/index.html">Collab</a></p>
+            <p>Team Activity<a href="team-activity-solo/index.html">Solo</a></p>
+            <p>Team Activity<a href="team-activity-collab/teamActivity2.html">Collab</a></p>
         </section>
     </main>
     <footer>
