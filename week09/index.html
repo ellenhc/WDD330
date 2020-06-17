@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week 09 | WDD 330</title>
+    <meta name="description" content="Ellen Carlson's Week 09 WDD 330 portfolio">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <h1>Week 9</h1>
+    <section>
+        <h2>Reading</h2>
+        <h3>Chp 9: The Window Object</h3>
+        <p>The Browser Object Model (BOM) is a collection of properties and methods that contain information about the browser and computer screen. These properties and methods are made available through the window object.</p>
+        <p>Global variables are created without using the const, let, or var keywords. They can be accessed in all parts of the program.</p>
+        <p>Global variables are actual properties of a global object. In a browser environment, the global object is the window object. This means that any global variable created is actually a property of the window object.</p>
+        <p>The window.alert() method pauses the execution of the program and displays a message in a dialog box. The message is provided as an argument to the method.</p>
+        <p>The window.confirm() method will stop the execution of the program and display a confirmation dialog that shows the mesage provided as an argument, and giving the options of OK or Cancel.</p>
+        <p>the window.prompt() method will stop the execution of the program. It displays a dialog that shows a messag eprovided as an argument, as well as an input field that allows the user to enter text. This text is then returned as a string when the
+            user clicks OK.</p>
+        <p>Thw window object has a navigator property that returns a reference to the Navigator object. The Navigator object contains information about the browser being used. *Don't rely on this info though, because it can easily masquerade as a different
+            browser.*
+        </p>
+        <p>The window.location property is an object that containers info about the URL of the current page.
+            <ul>
+                <li>The href property returns the full URL as a string.</li>
+                <li>The protocol property returns a string describing the protocol used.</li>
+                <li>The host property returns a string describing the domain of the current URL and the port number.</li>
+                <li>The hostname property returns a string describing the domain of the current URL.</li>
+                <li>The port property returns a string describing the port number.</li>
+                <li>The pathname property returns a string of the path that follows the domain.</li>
+                <li>The search property returns a string that starts with a '?' followed by the query string parameters.</li>
+                <li>The hash property returns a string that starts with a '#' followed by the fragment identifier.</li>
+                <li>The origin property returns a string that shows the protocol and domain where the current page originated from.</li>
+            </ul>
+            The window.location object also has reload(), assign(), replace(), and toString() methods. The reload() method can be used to force a reload of the current page. The assign() method can be used to load another resource from a URL provided as a parameter.
+            The replace() method is almost the same as the assign() method, except the current page will not be stored in the session history. The toString() method returns a string containing the whole URL.
+        </p>
+        <p>The window.history property can be used to access info about any previously visited pages inthe current browser session. The window.history.length property shows how many pages have been visited before arriving at the current page. The window.history.go()
+            method can be used to go to a specific page, where 0 is the current page. The window.history.forward() and window.history.back() methods can be used to navigate forwards and backwards by one page respectively.</p>
+        <p>A new window can be opened using the window.open() method. It takes the URL of the page to be opened as its first parameter, the window title as its second parameter, and a list of attributes as the third parameter.
+            <ul>
+                <li>The close() method can be used to close a window.</li>
+                <li>A window can be moved with the window.moveTo() method.</li>
+                <li>The window can be resized with the window.resizeTo() method.</li>
+            </ul>
+        </p>
+        <p>The window.screen object contains info about the screen the browser is displayed on. You can get the height and width of the screen in pixels using the height and width properties. The availHeight and availWidth can be used to find the height
+            and width of the screen. The colorDepth property can be used to find the color bit depth of the user's monitor.</p>
+        <p>Each window contains a document object that has properties and methods that deal with the page that has been loaded into the window. The write() method simply writes a string of text to the page. If the page has already loaded, it will completely
+            replace the current document. The document.write() method can also be used within a document inside script tags to inject a string into the markup. This will not overwrite the rest of the HTML on the page.</p>
+        <p>Cookies are small files that are saved locally on a user's computer. Cookies that the form of a text file that contain a list of name/value pairs separated by semicolons. To create a cookie, you assign it to JavaScript's 'cookie jar' using the
+            document.cookie property. This acts like a special type of string. Assigning another cookie to it won't overwrite the entire property, it will just append it to the end of the string. A cookie's value can be changed by reassigning it to document.cookie
+            using the same name but a different value. To see the current contents of the cookie jar, enter document.cookie. Cookies are session cookies by default, meaning they are deleted once a browser session is finished. They can be made persistent
+            by adding "; expires=date" to the end of the cookie when it's set. By default, cookies can only be read by pages inside the same directory and domain as the file was set. The path can be changed so that any page n the root directory can read
+            the cookie by adding the string ; path=/ to the end of the cookie when it is set. Adding the string ; secure to the end of a cookie will ensure it’s only transmitted over a secure HTTPS network. To remove a cookie, you need to set it to expire
+            at a time in the past.</p>
+        <p>The window.setTimeout() method accepts a callback to a function as its first parameter and a number of milliseconds as its second parameter. Perhaps this can be used to schedule the execution of a function, and repeatedly executing functions at
+            regular intervals. The window.clearTimeout() method can cancel the timeout. The window.setInterval() method will repeatedly invoke the callback function after every given number of milliseconds. The window.clearInterval() method can be used
+            to stop this.
+        </p>
+        <p>The setTimeout() and setInterval() methods can be used to animate elements on a web page.</p>
+        <h3>Chp 14: HTML5 APIs</h3>
+        <h3>Modern frontend development workflow</h3>
+    </section>
+    <footer>
+        <p>&copy; 2020 | Ellen Carlson | <a href="https://www.byui.edu/online">BYUI Online Learning</a></p>
+    </footer>
+</body>
+
+</html>
