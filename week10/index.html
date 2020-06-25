@@ -12,6 +12,106 @@
 
 <body>
     <main>
+        <h1>Week 10</h1>
+        <section>
+            <h2>Reading</h2>
+            <h3>Validating Forms</h3>
+            <p>Client-side form validation is when you ensure all required form controls are filled out in the correct format before submitting data to the server. It's an initial check. By catching invalid data on the client-side, the user can fix it straight
+                away instead of going to the server and then being rejected. However, client-side validation should not be considered an exhaustive security measure.</p>
+            <p>Apps should always perform security checks on any form-submitted data on the server-side as well as the client-side.</p>
+            <p>Form validation is when the browser and/or web server checks to see that the data entered is in the correct format and within the constraints set by the application. If the inforamtion is correctly formatted, the application allows the data
+                to be submitted to the serve and saved in a database. If it isn't correctly formateed, it gives the user an error message explaining what needs to be corrected, and lets them try again.</p>
+            <p>Form validation helps us get data in the right format so our applications work properly, it also helps protect our users' data, and it helps protect ourselves to preent malicious users from misusing unprotected forms to damage the application.</p>
+            <p>WARNING: Never trust data passed to your server from the client. Even if your form is validating correctly and preventing malformed input on the client-side, a malicious user can still alter the network request.</p>
+            <p>There are two different types of client-side validation: built-in form validation and JavaScript validation. Built-in form validation uses HTML5 form validation features. While it has better performance than JavaScript, it is not as customizable.
+                JavaScript validation is completely customizable, but you need to create it all or use a library.</p>
+            <h4>Built-in form validation</h4>
+            <ul>
+                <li>Required: specifies whether a form field needs to be filled in before the form can be submitted.</li>
+                <li>Minlength and maxlength: Specifies the minimum and maximum length of textual data (strings)</li>
+                <li>Min and max: Specifies the minimum and maximum values of numerical input types</li>
+                <li>Type: Specifies whether the data needs to be a number, an email address, or some other specific preset type.</li>
+                <li>Pattern: Specifies a regular expression that defines a pattern the entered data needs to follow.</li>
+            </ul>
+            <p>When an element is valid, the element matches the :valid CSS pseudo-class, which lets you apply a specific style to valid elements. If the user tries to send the data, the browser will submit the form, provided there is nothing else stopping
+                it from doing so. When an element is invalid, the element matches the :invalid CSS pseudo-class and if the user tries to send the data, the browser will block the form and display an error message.</p>
+            <p>A regular expression (regex) is a pattern that can be used to match character combinations in text strings.
+                <ul>
+                    <li>a - matches one character that is a (not b, not aa, and so on)</li>
+                    <li>abc - matches a, followed by b, followed by c</li>
+                    <li>ab?c - matches a, optionally followed by a single b, followed by c (ac or abc)</li>
+                    <li>ab*c - matches a, optionally followed by any number of b's, followed by c. (ac, abc, abbbbc, and so on)</li>
+                    <li>a|b - matches one character that is a or b.</li>
+                    <li>abc|xyz - matches exactly abc or exactly xyz (but not abcxyz or a or y, and so on).</li>
+                </ul>
+                Regular expressions are case-sensitive.
+            </p>
+            <h4>Validating forms using JavaScript</h4>
+            <p>Most browsers support the Contrainst Validation API, which consists of a set of methods and properties available on the following form element DOM interfaces: HTMLButtonElement, HTMLFieldSetElement, HTMLInputElement, HTMLOutputElement, HTMLSelectElement,
+                and HTMLTextAreaElement.</p>
+            <p>The Constraint Validation API makes the following properties available on the above elements:
+                <ul>
+                    <li>validationMessage: Returns a localized message describing the validation constraints that the control doesn't satisfy (if any).</li>
+                    <li>validity: Returns a ValidityState object that contains several properties describing the validity state of the element. (patternMismatch, tooLong, tooShort, rangeOverflow, rangeUnderflow, typeMismatch, valid, valueMissing, etc.)</li>
+                    <li>willValidate: Returns true if the element will be validated when the form is submitted; false otherwise.</li>
+                </ul>
+            </p>
+            <p>The Constraint Validation API also makes the following methods available on the above elements:
+                <ul>
+                    <li>checkValidity(): Returns true if the element's value has no validity problems; false otherwise.</li>
+                    <li>setCustomValidity(message): Adds a custom error message to the element; if you set a custom error message, the element is considered to be invalid, and the specified error is displayed. This lets you use JavaScript code to establish
+                        a validation failure other than those offered by the standard HTML5 validation constraints. The message is shown to the user when reporting the problem.</li>
+                </ul>
+            </p>
+            <p>Each time a user tries to submit an invalid form, the browser displays an error message. These automated messaged have two drawbacks: there is no standard way to change their look and feel with CSS and they depend on the browser locale, which
+                means that you can have a page in one language but an error message displayed in another language. Customizing these error messages is one of the most common use cases of the Constraint Validation API.</p>
+            <p>The novalidate attribute on the form stops the form from showing its own error message bubbles, and allows us to instead display the custom error messages in the DOM in some manner of our own choosing.</p>
+            <p>In some cases, such as legacy browser support or custom controls, you won't be able to use the Constraint Validation API. You're still able to use JavaScript to validate your form, but you'll have to write your own.</p>
+            <h3>Using Fetch</h3>
+            <p>The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously
+                across the network.</p>
+            <p>The simplest use of fetch() takes on argument - the path to the resouce you want to fetch - and returns a promise containing the response. This is jsut an HTTP response, not the actual JSON.</p>
+            <p>To extract the JSON body content from the response, use the json() method.</p>
+            <p>The fetch() method can optionally accept a second parameter, an init object that allows you to control a number of different settings:
+                <ul>
+                    <li>method</li>
+                    <li>mode</li>
+                    <li>cache</li>
+                    <li>credentials</li>
+                    <li>headers</li>
+                    <li>redirect</li>
+                    <li>referrerPolicy</li>
+                    <li>body</li>
+                </ul>
+            </p>
+            <p>Files can be uploaded using an HTML input type='file' input element, FormData() and fetch().</p>
+            <p>The chunks that are read form a response are not broken neatly at line boundaries and are Uint8Arrays, not strings. If you want to fetch a text file and process it line by line, it is up to you to handle these complications. One way to do
+                this is by creating a line iterator.</p>
+            <p>A fetch() promsie will reject with a TypeError when a network error is encountered or CORS is misconfigured on the server-side, although this usually means permission issues or similar. An accurate check for a successful fetch() would include
+                checking that the promise resolved, then checking that the Response.ok property has a value of true.</p>
+            <p>Instead of passing a path to the resource you want to request into the fetch() call, you can create a request object using the Request() constructor, and pass that in as a fetch() method argument. Request() accepts exactly the same parameters
+                as the fetch() method. You can even pass in an existing object to create a copy of it. Making a copy allows you to make use of the request/response again while varying the init options.</p>
+            <h4>Headers</h4>
+            <p>The Headers interface allows you to create your own headers object via the Headers() constructor. A headers object is a simple multi-map of names to values.</p>
+            <p>All of the Headers methods throw a TypeError if a header name is used that is now a valid HTTP Header name.</p>
+            <p>Header objects have a guard property that is not exposed to the web, but affects which mutation operations are allowed on the headers object. Possible guard values are: none, request, request-no-cors, response, immutable</p>
+            <h4>Reponse objects</h4>
+            <p>Response instances are returned when fetch() promises are resolved. The most common response properties are Response.status, Reponse.statusText, and Reponse.ok.
+                <ul>
+                    <li>Response.status - An integer containing the response status code</li>
+                    <li>Response.statusText - A string which corresponds to the HTTP status code message</li>
+                    <li>Reponse.ok - this is a shorthand for checking that status in in the range 200-299 inclusive. This returns a Boolean.</li>
+                </ul>
+            </p>
+            <p>The Response() constructor takes two optional arguments - a body for the response, and an init object.</p>
+            <h4>Body</h4>
+            <p>Both requests and responses may contain body data. A body is an isntance of any of the following types: ArrayBuffer, ArrayBufferView, Blob/File, string, URLSearchParams, and FormData.</p>
+            <p>The Body mixin defines the following methods to extract a body. These all return a promise that is eventually resolved with the actual content. arrayBuffer(), blob(), json(), text(), formData()</p>
+        </section>
+        <p>Both request and response will try to intelligently determine the content type. A request will also automatically set a Content-Type header if none is set in the dictionary.</p>
+        <h4>Feature detection</h4>
+        <p>Fetch API support can be detected by checking for the existence of Headers, Request, Reponse, or fetch() on the Window or Worker scope.</p>
+        <p>To use Fetch in unsupported browsers, there is a Fetch Polyfill available that recreates the funcitonality for non-supporting browsers.</p>
         <section>
             <h2>Team Activity</h2>
             <p><a href="team-activity-collab/">Link</a></p>
