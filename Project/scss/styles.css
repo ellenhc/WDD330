@@ -10,6 +10,7 @@ form {
   width: 90%;
   margin: auto;
   padding: 1rem;
+  border-radius: 4px;
 }
 
 form label {
@@ -34,6 +35,11 @@ form button {
   border: none;
   padding: 1rem;
   width: 100%;
+}
+
+footer {
+  width: 90%;
+  margin: 1rem auto;
 }
 
 /*Sidebar*/
@@ -144,6 +150,11 @@ h4,
 h5,
 h6 {
   font-family: 'Nunito', sans-serif;
+}
+
+form button {
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
 }
 
 body {
