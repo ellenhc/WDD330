@@ -1,0 +1,21 @@
+$yellow: #FFCE00;
+$darkyellow: #e5b900;
+$blue: #0375B4;
+$darkblue: #024469;
+$green: #007849;
+$red: #C30916;
+$black: #262228;
+body {
+    background-color: $darkblue;
+    color: white;
+}
+
+form {
+    background-color: #025482;
+    button {
+        background-color: $yellow;
+    }
+    button:hover {
+        background-color: $darkyellow;
+    }
+}

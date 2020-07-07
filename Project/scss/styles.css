@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;1,400;1,700&family=Roboto&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  width: 90%;
+  margin: auto;
+  padding: 1rem;
+}
+
+form label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  margin-top: 0.5rem;
+}
+
+form input,
+form select {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 4px;
+  border: none;
+}
+
+form button {
+  margin-top: 1rem;
+  border-radius: 4px;
+  border: none;
+  padding: 1rem;
+  width: 100%;
+}
+
+/*Sidebar*/
+header {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 35px;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+header.open {
+  width: 30vw;
+  background-color: #98afc7;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.menu-sidebar {
+  z-index: 0;
+}
+
+.open .menu-sidebar {
+  width: 100%;
+}
+
+.menu-sidebar .menu {
+  padding: 1rem;
+  list-style-type: none;
+  position: absolute;
+  opacity: 0;
+}
+
+.open .menu-sidebar .menu {
+  position: static;
+  opacity: 1;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu li {
+  margin-top: 0.5rem;
+}
+
+.menu a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+  font-size: larger;
+}
+
+.menu a:hover {
+  font-style: italic;
+  font-weight: bold;
+}
+
+/*Styling and animating the menu icon below*/
+.menu-icon {
+  width: 35px;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.menu-icon::before,
+.menu-icon span,
+.menu-icon::after {
+  display: block;
+  content: "";
+  background-color: black;
+  height: 5px;
+  margin: 6px 0;
+  border-radius: 5px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+/*All of your CSS to transform the 3 bar menu to an X should be in .open class*/
+.open .menu-icon::before {
+  -webkit-transform: translateY(11px) rotate(45deg);
+          transform: translateY(11px) rotate(45deg);
+  background-color: #fff;
+}
+
+.open .menu-icon::after {
+  -webkit-transform: translateY(-11px) rotate(-45deg);
+          transform: translateY(-11px) rotate(-45deg);
+  background-color: #fff;
+}
+
+.open .menu-icon span {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Nunito', sans-serif;
+}
+
+body {
+  background-color: #024469;
+  color: white;
+}
+
+form {
+  background-color: #025482;
+}
+
+form button {
+  background-color: #FFCE00;
+}
+
+form button:hover {
+  background-color: #e5b900;
+}
+/*# sourceMappingURL=styles.css.map */
