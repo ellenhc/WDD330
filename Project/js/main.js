@@ -33,7 +33,7 @@ function storeQuestions(questions) {
         questionList.push(question);
     }
     //console.log(questions);
-    console.log(questionList);
+    //console.log(questionList);
     renderOneQuestion();
 }
 
@@ -47,18 +47,18 @@ function getCurrentQuestion() {
 
 function renderOneQuestion() {
     //step 1 - remove page content (this works, i've checked)
-    let node = document.querySelector("body");
+    const node = document.querySelector("body");
     node.innerHTML = "";
     //step 2 - render to page
     const currentQuestion = getCurrentQuestion();
     const container = document.createElement("div");
-    container.classList.add("trivia-container"); //adds a class
+    container.classList.add("trivia-container"); //adds a class to container
 
     const questionDiv = document.createElement("div");
     questionDiv.classList.add("question-div"); //adds a class to style the question
     questionDiv.innerHTML = `<h1>${currentQuestion.question}</h1>`;
-    node.appendChild(container);
-    container.appendChild(questionDiv);
+    node.appendChild(container); //adds trivia-container to page
+    container.appendChild(questionDiv); //adds questionDiv to page
 
     const questionContainer = document.createElement("div");
     questionContainer.classList.add("question-container");
@@ -71,7 +71,6 @@ function renderOneQuestion() {
         randomAnswer[i] = randomAnswer[j]
         randomAnswer[j] = k
     }
-    console.log(randomAnswer);
     randomAnswer.forEach((i) => {
         if (i == 3) {
             const answer = document.createElement("div");
@@ -83,6 +82,7 @@ function renderOneQuestion() {
             answer.addEventListener("click", () => {
                 //change background-color to green
                 answer.style.backgroundColor = "#007849";
+                answer.style.transition = "all 0.5s"; //adds gradual transition to green color
             })
         } else {
             const answer = document.createElement("div");
@@ -94,9 +94,20 @@ function renderOneQuestion() {
             answer.addEventListener("click", () => {
                 //change background-color to red
                 answer.style.backgroundColor = "#C30916";
+                answer.style.transition = "all 0.5s"; //adds a gradual transition to red color
             })
         }
     });
 
-    container.appendChild(questionContainer); //adds the question container
+    container.appendChild(questionContainer); //adds the question container to page
+}
+
+function renderButtons() {
+    const backButton = document.createElement("span");
+    backButton.innerHTML = `&#9664 Back`;
+    backButton.classList.add("btn");
+
+    const nextButton = document.createElement("span");
+    nextButton.innerHTML = `Next &#9658`;
+    nextButton.classList.add("btn");
 }

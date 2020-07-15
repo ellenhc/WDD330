@@ -28,6 +28,9 @@ form {
 .trivia-container {
     .question-div h1 {
         text-align: center;
+        @media only screen and (max-width: 600px) {
+            font-size: 1.75em; //makes question font a little smaller on mobile views
+        }
     }
     .answer {
         text-align: center;

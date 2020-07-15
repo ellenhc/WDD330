@@ -34,3 +34,11 @@ a {
         }
     }
 }
+
+.btn {
+    background-color: $gray;
+    color: black;
+    &:hover {
+        background-color: darken($gray, 5%);
+    }
+}
