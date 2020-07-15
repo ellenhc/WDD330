@@ -1,21 +1,36 @@
 $yellow: #FFCE00;
-$darkyellow: #e5b900;
-$blue: #0375B4;
+$blue: #025482;
 $darkblue: #024469;
 $green: #007849;
 $red: #C30916;
-$black: #262228;
+$gray: #efefef;
 body {
     background-color: $darkblue;
     color: white;
 }
 
 form {
-    background-color: #025482;
+    background-color: $blue;
     button {
         background-color: $yellow;
     }
     button:hover {
-        background-color: $darkyellow;
+        background-color: darken($yellow, 5%);
+    }
+}
+
+a {
+    color: white;
+}
+
+.trivia-container {
+    background-color: $blue;
+    .answer {
+        background-color: $yellow;
+        color: black;
+        &:hover,
+        &:focus {
+            background-color: darken($yellow, 5%);
+        }
     }
 }

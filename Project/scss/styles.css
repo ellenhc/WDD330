@@ -6,6 +6,11 @@
   padding: 0;
 }
 
+header {
+  width: 90%;
+  margin: 1rem auto;
+}
+
 form {
   width: 90%;
   margin: auto;
@@ -42,101 +47,39 @@ footer {
   margin: 1rem auto;
 }
 
-/*Sidebar*/
-header {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  height: 100vh;
-  width: 35px;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
-}
-
-header.open {
-  width: 30vw;
-  background-color: #98afc7;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
-}
-
-.menu-sidebar {
-  z-index: 0;
-}
-
-.open .menu-sidebar {
-  width: 100%;
-}
-
-.menu-sidebar .menu {
+/*Styling the trivia question page below*/
+.trivia-container {
+  width: 90%;
+  margin: 1rem auto;
   padding: 1rem;
-  list-style-type: none;
-  position: absolute;
-  opacity: 0;
+  border-radius: 4px;
 }
 
-.open .menu-sidebar .menu {
-  position: static;
-  opacity: 1;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+.trivia-container .question-div {
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
 }
 
-.menu li {
-  margin-top: 0.5rem;
+.trivia-container .question-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
 }
 
-.menu a {
-  text-transform: uppercase;
-  text-decoration: none;
-  color: black;
-  font-size: larger;
+@media only screen and (max-width: 600px) {
+  .trivia-container .question-container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
 }
 
-.menu a:hover {
-  font-style: italic;
-  font-weight: bold;
-}
-
-/*Styling and animating the menu icon below*/
-.menu-icon {
-  width: 35px;
-  cursor: pointer;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 2;
-}
-
-.menu-icon::before,
-.menu-icon span,
-.menu-icon::after {
-  display: block;
-  content: "";
-  background-color: black;
-  height: 5px;
-  margin: 6px 0;
-  border-radius: 5px;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-/*All of your CSS to transform the 3 bar menu to an X should be in .open class*/
-.open .menu-icon::before {
-  -webkit-transform: translateY(11px) rotate(45deg);
-          transform: translateY(11px) rotate(45deg);
-  background-color: #fff;
-}
-
-.open .menu-icon::after {
-  -webkit-transform: translateY(-11px) rotate(-45deg);
-          transform: translateY(-11px) rotate(-45deg);
-  background-color: #fff;
-}
-
-.open .menu-icon span {
-  -webkit-transform: scale(0);
-          transform: scale(0);
+.trivia-container .answer {
+  padding: 1rem;
+  border-radius: 4px;
+  width: 100%;
 }
 
 body {
@@ -152,9 +95,21 @@ h6 {
   font-family: 'Nunito', sans-serif;
 }
 
+header h1 {
+  text-align: center;
+}
+
 form button {
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
+}
+
+.trivia-container .question-div h1 {
+  text-align: center;
+}
+
+.trivia-container .answer {
+  text-align: center;
 }
 
 body {
@@ -171,6 +126,23 @@ form button {
 }
 
 form button:hover {
-  background-color: #e5b900;
+  background-color: #e6b900;
+}
+
+a {
+  color: white;
+}
+
+.trivia-container {
+  background-color: #025482;
+}
+
+.trivia-container .answer {
+  background-color: #FFCE00;
+  color: black;
+}
+
+.trivia-container .answer:hover, .trivia-container .answer:focus {
+  background-color: #e6b900;
 }
 /*# sourceMappingURL=styles.css.map */

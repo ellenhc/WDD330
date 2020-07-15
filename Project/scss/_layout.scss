@@ -4,6 +4,11 @@
     padding: 0;
 }
 
+header {
+    width: 90%;
+    margin: 1rem auto;
+}
+
 form {
     width: 90%;
     margin: auto;
@@ -35,4 +40,32 @@ form {
 footer {
     width: 90%;
     margin: 1rem auto;
+}
+
+
+/*Styling the trivia question page below*/
+
+.trivia-container {
+    width: 90%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 4px;
+    .question-div {
+        padding: 1rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+    }
+    .question-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+        @media only screen and (max-width: 600px) {
+            grid-template-columns: 1fr;
+        }
+    }
+    .answer {
+        padding: 1rem;
+        border-radius: 4px;
+        width: 100%;
+    }
 }

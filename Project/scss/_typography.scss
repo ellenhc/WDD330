@@ -12,9 +12,24 @@ h6 {
     font-family: 'Nunito', sans-serif;
 }
 
+header {
+    h1 {
+        text-align: center;
+    }
+}
+
 form {
     button {
         font-family: 'Nunito', sans-serif;
         font-weight: bold;
+    }
+}
+
+.trivia-container {
+    .question-div h1 {
+        text-align: center;
+    }
+    .answer {
+        text-align: center;
     }
 }
