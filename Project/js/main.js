@@ -1,11 +1,4 @@
-//example url https://opentdb.com/api.php?amount=11&category=19&difficulty=easy&type=multiple
-//amount=11 is the number of questions
-//category=19 is the category (each is given a number)
-//difficulty=easy
-//will always show type=multiple
 const startURL = "https://opentdb.com/api.php?";
-
-//the url is a json file. each multiple choice question has 4 answers. each question has a category, type, difficulty, question, correct_answer, and incorrect_answers
 
 let questionList = [];
 let currentQuestionIndex = 0;
@@ -29,8 +22,8 @@ form.addEventListener('submit', (event) => {
 
 function storeQuestions(questions) {
     for (let i = 0; i < questions.length; i++) {
-        let question = { question: questions[i].question, correct_answer: questions[i].correct_answer, incorrect_answers: questions[i].incorrect_answers };
-        questionList.push(question);
+        let question = { question: questions[i].question, correct_answer: questions[i].correct_answer, incorrect_answers: questions[i].incorrect_answers }; //just saves the question, the correct answer, and the incorrect answers and not the other data
+        questionList.push(question); //adds it to the questionList array
     }
     //console.log(questions);
     //console.log(questionList);
@@ -46,22 +39,23 @@ function getCurrentQuestion() {
 }
 
 function renderOneQuestion() {
-    //step 1 - remove page content (this works, i've checked)
+    /*step 1 - remove previous page content*/
     const node = document.querySelector("body");
     node.innerHTML = "";
-    //step 2 - render to page
-    const currentQuestion = getCurrentQuestion();
-    const container = document.createElement("div");
-    container.classList.add("trivia-container"); //adds a class to container
 
-    const questionDiv = document.createElement("div");
+    /*step 2 - renders current question to page*/
+    const currentQuestion = getCurrentQuestion();
+    const container = document.createElement("div"); //creates a div to hold the question content
+    container.classList.add("trivia-container"); //adds a class to that div
+
+    const questionDiv = document.createElement("div"); //adds a div to hold the question itself
     questionDiv.classList.add("question-div"); //adds a class to style the question
-    questionDiv.innerHTML = `<h1>${currentQuestion.question}</h1>`;
+    questionDiv.innerHTML = `<h1>${currentQuestion.question}</h1>`; //adds the question text as an h1
     node.appendChild(container); //adds trivia-container to page
     container.appendChild(questionDiv); //adds questionDiv to page
 
-    const questionContainer = document.createElement("div");
-    questionContainer.classList.add("question-container");
+    const answerContainer = document.createElement("div"); //creates container to hold the answers
+    answerContainer.classList.add("question-container"); //adds a class to that container
 
     let randomAnswer = [0, 1, 2, 3]; //has same length as number of possible answers
     //Shuffles array to get a number in no particular order using the Fisher Yates method
@@ -76,7 +70,7 @@ function renderOneQuestion() {
             const answer = document.createElement("div");
             answer.innerHTML = `<p>${currentQuestion.correct_answer}</p>`;
             answer.classList.add("answer");
-            questionContainer.appendChild(answer);
+            answerContainer.appendChild(answer);
 
             //add a click handler for correct answer
             answer.addEventListener("click", () => {
@@ -88,7 +82,7 @@ function renderOneQuestion() {
             const answer = document.createElement("div");
             answer.innerHTML = `<p>${currentQuestion.incorrect_answers[i]}</p>`;
             answer.classList.add("answer");
-            questionContainer.appendChild(answer);
+            answerContainer.appendChild(answer);
 
             //add a click handler for incorrect answers
             answer.addEventListener("click", () => {
@@ -99,15 +93,35 @@ function renderOneQuestion() {
         }
     });
 
-    container.appendChild(questionContainer); //adds the question container to page
+    container.appendChild(answerContainer); //adds the answer container to page
+    renderButtons();
 }
 
+/*function renderAllQuestions() {
+    for (let i = 0; i < questionList.length; i++) {
+        renderOneQuestion();
+    }
+}*/
+
 function renderButtons() {
+    const node = document.querySelector(".trivia-container");
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("btn-container");
+
     const backButton = document.createElement("span");
     backButton.innerHTML = `&#9664 Back`;
     backButton.classList.add("btn");
+    buttonContainer.appendChild(backButton);
 
     const nextButton = document.createElement("span");
     nextButton.innerHTML = `Next &#9658`;
     nextButton.classList.add("btn");
+    buttonContainer.appendChild(nextButton);
+    nextButton.addEventListener("click", () => {
+        currentQuestionIndex++;
+        renderOneQuestion();
+    })
+
+    node.appendChild(buttonContainer);
 }
