@@ -23,11 +23,18 @@ a {
     color: white;
 }
 
+.stats-box {
+    background-color: $blue;
+}
+
 .trivia-container {
     background-color: $blue;
     .answer {
         background-color: $yellow;
         color: black;
+    }
+    &:not(.done) .answer {
+        cursor: pointer;
         &:hover,
         &:focus {
             background-color: darken($yellow, 5%);
