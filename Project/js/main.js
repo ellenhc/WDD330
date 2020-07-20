@@ -82,6 +82,8 @@ function renderOneQuestion() {
                     answer.style.transition = "all 0.5s"; //adds gradual transition to green color
 
                     score++; //increments the score
+
+                    //re renders the scoreBox to reflect new score
                     const scoreBox = document.querySelector(".score-box");
                     scoreBox.innerHTML = renderScore();
                 }
@@ -104,11 +106,11 @@ function renderOneQuestion() {
     });
 
     container.appendChild(answerContainer); //adds the answer container to page
-    renderButtons(); //adds next button once an answer has been clicked
+    renderButton(); //adds next button once an answer has been clicked
 }
 
-function renderButtons() {
-    const node = document.querySelector(".trivia-container");
+function renderButton() {
+    const node = document.querySelector(".trivia-container"); //might want to append onto the body instead for looks
 
     const buttonContainer = document.createElement("div");
     buttonContainer.classList.add("btn-container");
@@ -133,14 +135,9 @@ function renderStats(node) {
     const scoreBox = document.createElement("div");
     scoreBox.classList.add("score-box");
     scoreBox.innerHTML = renderScore();
-    //scoreBox.innerHTML = `<h3>${score} / ${questionList.length}</h3>`;
-    //statsBox.appendChild(renderScore());
     statsBox.appendChild(scoreBox);
 }
 
 function renderScore() {
-    //const scoreBox = document.createElement("div");
-    //scoreBox.classList.add("score-box");
     return `<h3>${score} / ${questionList.length}</h3>`;
-    //return scoreBox;
 }
