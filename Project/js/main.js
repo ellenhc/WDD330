@@ -82,6 +82,8 @@ function renderOneQuestion() {
                     answer.style.transition = "all 0.5s"; //adds gradual transition to green color
 
                     score++; //increments the score
+                    const scoreBox = document.querySelector(".score-box");
+                    scoreBox.innerHTML = renderScore();
                 }
             })
         } else {
@@ -111,11 +113,6 @@ function renderButtons() {
     const buttonContainer = document.createElement("div");
     buttonContainer.classList.add("btn-container");
 
-    /*const backButton = document.createElement("span");
-    backButton.innerHTML = `&#9664 Back`;
-    backButton.classList.add("btn");
-    buttonContainer.appendChild(backButton);*/
-
     const nextButton = document.createElement("span");
     nextButton.innerHTML = `Next &#9658`;
     nextButton.classList.add("btn");
@@ -133,5 +130,17 @@ function renderStats(node) {
     statsBox.classList.add("stats-box");
     node.appendChild(statsBox);
 
-    statsBox.innerHTML = `<div class="score-box"><p>Score:</p> <h3>${score} / ${questionList.length}</h3></div>`;
+    const scoreBox = document.createElement("div");
+    scoreBox.classList.add("score-box");
+    scoreBox.innerHTML = renderScore();
+    //scoreBox.innerHTML = `<h3>${score} / ${questionList.length}</h3>`;
+    //statsBox.appendChild(renderScore());
+    statsBox.appendChild(scoreBox);
+}
+
+function renderScore() {
+    //const scoreBox = document.createElement("div");
+    //scoreBox.classList.add("score-box");
+    return `<h3>${score} / ${questionList.length}</h3>`;
+    //return scoreBox;
 }
