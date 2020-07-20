@@ -81,7 +81,7 @@ function renderOneQuestion() {
                     answer.style.backgroundColor = "#007849"; //change background-color to green
                     answer.style.transition = "all 0.5s"; //adds gradual transition to green color
 
-                    score++;
+                    score++; //increments the score
                 }
             })
         } else {
@@ -102,7 +102,7 @@ function renderOneQuestion() {
     });
 
     container.appendChild(answerContainer); //adds the answer container to page
-    renderButtons();
+    renderButtons(); //adds next button once an answer has been clicked
 }
 
 function renderButtons() {
@@ -111,10 +111,10 @@ function renderButtons() {
     const buttonContainer = document.createElement("div");
     buttonContainer.classList.add("btn-container");
 
-    const backButton = document.createElement("span");
+    /*const backButton = document.createElement("span");
     backButton.innerHTML = `&#9664 Back`;
     backButton.classList.add("btn");
-    buttonContainer.appendChild(backButton);
+    buttonContainer.appendChild(backButton);*/
 
     const nextButton = document.createElement("span");
     nextButton.innerHTML = `Next &#9658`;
