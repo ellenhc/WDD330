@@ -229,6 +229,8 @@ function showCorrectAnswer() {
     modalContent.innerHTML = `<p>The correct answer was ${currentQuestion.correct_answer}</p>`
     modal.appendChild(modalContent); //adds modalContent to the modal
 
+    modal.style.display = "block";
+
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
             modal.style.display = "none";
