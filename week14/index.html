@@ -13,7 +13,10 @@
 <body>
     <main>
         <h1>Week 14</h1>
-        <p></p>
+        <p>I began the week by working further on the score box. Previously the score only incremented where the viewer could see when a new question was rendered. After a lot of fiddling, I got it to now to visibly increase as soon as the user selects a
+            correct answer. Basically I created a renderScore function that the renderStats function calls. That way I can call the renderScore function again as part of the click event handler for selecting the correct answer.</p>
+        <p>My next problem is that after the user goes through all the questions from the API, the renderOneQuestion function is still trying to load another question. I need to come up with a way to end that process and show some kind of ending message.
+            Maybe a goodbye message and showing the user's results?</p>
     </main>
     <footer>
         <p>&copy; 2020 | Ellen Carlson | <a href="https://www.byui.edu/online">BYUI Online Learning</a></p>

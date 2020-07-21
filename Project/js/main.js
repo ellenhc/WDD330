@@ -4,6 +4,9 @@ let questionList = [];
 let currentQuestionIndex = 0;
 let score = 0;
 
+const correctSound = new Audio("http://f5361a5c08a4c03f7c6f-acbeb9602bd0a56bf9c1a6bed3d8280b.r27.cf2.rackcdn.com/RightSound2%202.mp3");
+const wrongSound = new Audio("http://f5361a5c08a4c03f7c6f-acbeb9602bd0a56bf9c1a6bed3d8280b.r27.cf2.rackcdn.com/wrongSound2.mp3");
+
 const form = document.querySelector("form"); //grabs the form element
 
 form.addEventListener('submit', (event) => {
@@ -43,6 +46,7 @@ function renderOneQuestion() {
     const node = document.querySelector("body");
     node.innerHTML = "";
     renderStats(node);
+    renderTimer();
 
     /*step 2 - renders current question to page*/
     const currentQuestion = getCurrentQuestion();
@@ -73,19 +77,22 @@ function renderOneQuestion() {
             answer.classList.add("answer");
             answerContainer.appendChild(answer);
 
-            //add a click handler for correct answer
+            //add a click handler for CORRECT answer
             answer.addEventListener("click", () => {
                 if (!container.classList.contains("done")) {
                     container.classList.add("done"); //adds class "done"
 
                     answer.style.backgroundColor = "#007849"; //change background-color to green
-                    answer.style.transition = "all 0.5s"; //adds gradual transition to green color
+                    answer.style.transition = "all 1.5s"; //adds gradual transition to green color
+
+                    correctSound.play(); //sound effect
 
                     score++; //increments the score
-
-                    //re renders the scoreBox to reflect new score
+                    //re-renders the scoreBox to reflect new score
                     const scoreBox = document.querySelector(".score-box");
                     scoreBox.innerHTML = renderScore();
+
+                    renderTimer()
                 }
             })
         } else {
@@ -94,12 +101,20 @@ function renderOneQuestion() {
             answer.classList.add("answer");
             answerContainer.appendChild(answer);
 
-            //add a click handler for incorrect answers
+            //add a click handler for INCORRECT answers
             answer.addEventListener("click", () => {
                 if (!container.classList.contains("done")) {
                     container.classList.add("done"); //adds class "done"
+
+                    wrongSound.play(); //sound effect
+
                     answer.style.backgroundColor = "#C30916"; //change background-color to red
-                    answer.style.transition = "all 0.5s"; //adds a gradual transition to red color
+                    answer.style.transition = "all 1.5s"; //adds a gradual transition to red color
+
+                    renderTimer()
+
+                    //alert(`The correct answer was ${currentQuestion.correct_answer}`);
+                    showCorrectAnswer();
                 }
             })
         }
@@ -110,7 +125,7 @@ function renderOneQuestion() {
 }
 
 function renderButton() {
-    const node = document.querySelector(".trivia-container"); //might want to append onto the body instead for looks
+    const node = document.querySelector(".trivia-container");
 
     const buttonContainer = document.createElement("div");
     buttonContainer.classList.add("btn-container");
@@ -120,8 +135,13 @@ function renderButton() {
     nextButton.classList.add("btn");
     buttonContainer.appendChild(nextButton);
     nextButton.addEventListener("click", () => {
-        currentQuestionIndex++;
-        renderOneQuestion();
+        currentQuestionIndex++; //increments the currentQuestionIndex to go to next q when fxn is called
+        //renders the next question if the questions have not been exhausted
+        if (currentQuestionIndex != questionList.length) {
+            renderOneQuestion();
+        } else {
+            renderGoodbye();
+        }
     })
 
     node.appendChild(buttonContainer);
@@ -136,8 +156,80 @@ function renderStats(node) {
     scoreBox.classList.add("score-box");
     scoreBox.innerHTML = renderScore();
     statsBox.appendChild(scoreBox);
+
+    const timerBox = document.createElement("div");
+    timerBox.classList.add("timer-box");
+    timerBox.innerHTML = `<p>Timer</p><div id="timer"></div>`;
+    statsBox.appendChild(timerBox);
 }
 
 function renderScore() {
-    return `<h3>${score} / ${questionList.length}</h3>`;
+    return `<p>Score</p><h3>${score} / ${questionList.length}</h3>`;
+}
+
+function renderTimer() {
+    var i = 0;
+
+    function move() {
+        if (i == 0) {
+            i = 1;
+            var elem = document.getElementById("timer");
+            var width = 1;
+            var id = setInterval(frame, 600);
+
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(id);
+                    i = 0;
+                } else {
+                    width++;
+                    elem.style.width = width + "%";
+                }
+            }
+        }
+    }
+}
+
+function renderGoodbye() {
+    /*step 1 - remove question/answer content*/
+    const node = document.querySelector(".trivia-container");
+    node.innerHTML = "";
+
+    /*step 2 */
+    const goodbyeContainer = document.createElement("div");
+    goodbyeContainer.classList.add("goodbye-div");
+    goodbyeContainer.innerHTML = `<p>Thanks for playing Ellen's trivia game!</p>`;
+
+    const playAgain = document.createElement("div");
+    playAgain.classList.add("play-again");
+    playAgain.innerHTML = `Play Again?`
+    goodbyeContainer.appendChild(playAgain);
+
+    node.appendChild(goodbyeContainer);
+
+    //reload page to go back to the original form when "play again" is clicked
+    playAgain.addEventListener("click", () => {
+        location.reload();
+    })
+}
+
+function showCorrectAnswer() {
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
+
+    const modalContent = document.createElement("div");
+    modalContent.classList.add("modal-content");
+    modalContent.innerHTML = `<span class="close">&times;</span><p>The correct answer was ${currentQuestion.correct_answer}</p>`
+    modal.appendChild(modalContent); //adds modal content to the modal
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+            modal.style.display = "none";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 }

@@ -55,8 +55,20 @@ body {
 .stats-box {
     margin-top: 1rem;
     padding: 1rem;
-    width: 50%;
     border-radius: 4px;
+    display: grid;
+    grid-template-columns: auto auto;
+    .timer-box {
+        width: 100%;
+        background-color: #efefef;
+        border-radius: 4px;
+    }
+    #timer {
+        width: 0%;
+        //height: 30px;
+        background-color: #007849;
+        border-radius: 4px;
+    }
 }
 
 .trivia-container {
@@ -99,5 +111,13 @@ body {
     @media only screen and (min-width: 600px) {
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+.goodbye-div {
+    .play-again {
+        border-radius: 4px;
+        padding: 1rem;
+        margin: 1rem;
     }
 }
