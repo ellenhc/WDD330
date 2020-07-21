@@ -195,7 +195,7 @@ function renderGoodbye() {
     const node = document.querySelector(".trivia-container");
     node.innerHTML = "";
 
-    /*step 2 */
+    /*step 2 - show message and play again button */
     const goodbyeContainer = document.createElement("div");
     goodbyeContainer.classList.add("goodbye-div");
     goodbyeContainer.innerHTML = `<p>Thanks for playing Ellen's trivia game!</p>`;
@@ -207,20 +207,27 @@ function renderGoodbye() {
 
     node.appendChild(goodbyeContainer);
 
-    //reload page to go back to the original form when "play again" is clicked
+    /*step 3 - reload page to go back to the original form when play again is clicked*/
     playAgain.addEventListener("click", () => {
         location.reload();
     })
 }
 
 function showCorrectAnswer() {
+    const currentQuestion = getCurrentQuestion();
     const modal = document.createElement("div");
     modal.classList.add("modal");
 
     const modalContent = document.createElement("div");
     modalContent.classList.add("modal-content");
-    modalContent.innerHTML = `<span class="close">&times;</span><p>The correct answer was ${currentQuestion.correct_answer}</p>`
-    modal.appendChild(modalContent); //adds modal content to the modal
+
+    const span = document.createElement("span");
+    span.classList.add("close");
+    span.innerHTML = `&times;`;
+    modalContent.appendChild(span); //adds the span to modalContent
+
+    modalContent.innerHTML = `<p>The correct answer was ${currentQuestion.correct_answer}</p>`
+    modal.appendChild(modalContent); //adds modalContent to the modal
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
