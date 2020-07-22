@@ -46,7 +46,7 @@ function renderOneQuestion() {
     const node = document.querySelector("body");
     node.innerHTML = "";
     renderStats(node);
-    renderTimer();
+    //renderTimer();
 
     /*step 2 - renders current question to page*/
     const currentQuestion = getCurrentQuestion();
@@ -85,14 +85,13 @@ function renderOneQuestion() {
                     answer.style.backgroundColor = "#007849"; //change background-color to green
                     answer.style.transition = "all 1.5s"; //adds gradual transition to green color
 
+                    correctSound.currentTime = 0;
                     correctSound.play(); //sound effect
 
                     score++; //increments the score
                     //re-renders the scoreBox to reflect new score
                     const scoreBox = document.querySelector(".score-box");
                     scoreBox.innerHTML = renderScore();
-
-                    renderTimer()
                 }
             })
         } else {
@@ -106,12 +105,11 @@ function renderOneQuestion() {
                 if (!container.classList.contains("done")) {
                     container.classList.add("done"); //adds class "done"
 
+                    wrongSound.currentTime = 0;
                     wrongSound.play(); //sound effect
 
                     answer.style.backgroundColor = "#C30916"; //change background-color to red
                     answer.style.transition = "all 1.5s"; //adds a gradual transition to red color
-
-                    renderTimer()
 
                     //alert(`The correct answer was ${currentQuestion.correct_answer}`);
                     showCorrectAnswer();
@@ -139,6 +137,7 @@ function renderButton() {
         //renders the next question if the questions have not been exhausted
         if (currentQuestionIndex != questionList.length) {
             renderOneQuestion();
+            //renderTimer();
         } else {
             renderGoodbye();
         }
@@ -167,10 +166,10 @@ function renderScore() {
     return `<p>Score</p><h3>${score} / ${questionList.length}</h3>`;
 }
 
-function renderTimer() {
+/*function renderTimer() {
     var i = 0;
-
-    function move() {
+    const node = document.querySelector("body");
+    node.addEventListener("load", () => {
         if (i == 0) {
             i = 1;
             var elem = document.getElementById("timer");
@@ -187,8 +186,8 @@ function renderTimer() {
                 }
             }
         }
-    }
-}
+    })
+}*/
 
 function renderGoodbye() {
     /*step 1 - remove question/answer content*/
