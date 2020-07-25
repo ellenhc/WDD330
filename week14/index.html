@@ -20,11 +20,24 @@
             equal, renderOneQuestion is called instead.</p>
         <p>For the ending screen, I also created a "play again" button that reloads the page to return to the original form.</p>
         <p>I added sound effects for when the user clicks a correct versus incorrect answer. Right now it needs more work, because if you click quickly through the questions, the sound doesn't play for each click. I think we had to do something similar to
-            tackling this issue in the team activity for week 9.</p>
-        <p>I spent a good chunk of Tuesday trying to create a modal that would pop up to show the user the correct answer when they chose incorrectly.</p>
+            tackling this issue in the team activity for week 9. Yes, I was right. We set the currentTime back to 0 before requesting to play a sound again.</p>
+        <p>I spent a good chunk of Tuesday trying to create a modal that would pop up to show the user the correct answer when they chose incorrectly. Previously I thought about just using an alert popup but it felt like a bad user experience design. I decided
+            against both these methods and will probably use an empty element at the bottom of the trivia container instead.
+        </p>
+        <p>The timer is giving me some trouble. I have an idea in a CodePen that seems to be working, but not when I translate it over into the application needed for my trivia app. I will probably use setInterval(). I did end up getting the timer to work
+            periodically. But I realized it was only "loading" 60% of the timer bar so I switched my methods so the bar filled 100% of the way. But that complicated the code and I've been banging my head trying to find a solution. Part of me is tempted
+            to just remove the timer, but I've already put so much work into it that I'd like to use it. Basically, for a long time, the timer wasn't actually incrementing the width of the timer bar. It just kept throwing out 1. I ended up needing the
+            grab the width of the actual timer element and then it incremented. Then I was able to add code so that once the time is up, the user isn't allowed to answer anymore. This is done in the same way I did it for what happens after the user clicks
+            an answer: the "done" class is applied. Then it shows what the correct answer choice was. Once that was done, I realized my timer was no longer stopping when the user did answer a question. Apparently I had accidentally redeclared my setInterval
+            variable.
+        </p>
+        <p>As a last tie in to what we learned this semester, I had planned on separating my JavaScript into at least three files, but I ran out of time. After dealing with other classes, work, and getting kinks ironed out of the timer functionality, there
+            just wasn't enough time left to figure out how to pull apart my code. I suppose now it would've been better if I had kept everything separated as I coded, because now my functions intertwine visual representaiton, functionality/updating, and
+            linking those two categories.</p>
         <h2>Report</h2>
-        <p>In many ways, I think I learned the most in this class during the last three weeks I've been working on my final project. Although there's still some topics the class covered that I don't completely understand, I feel a lot more confident in my
-            abilities.</p>
+        <p>In many ways, I think I learned the most in this class during the last three weeks I've been working on my final project. My project has required that I use lots of DOM manipulation, fetch, event listeners, forms, arrays, if statements, etc. Although
+            there's still some topics the class covered that I don't completely understand, I feel a lot more confident in my abilities.
+        </p>
     </main>
     <footer>
         <p>&copy; 2020 | Ellen Carlson | <a href="https://www.byui.edu/online">BYUI Online Learning</a></p>

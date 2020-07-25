@@ -58,15 +58,12 @@ body {
     border-radius: 4px;
     display: grid;
     grid-template-columns: auto auto;
-    .timer-box {
-        width: 100%;
-        background-color: #efefef;
+    .outer {
         border-radius: 4px;
     }
     #timer {
         width: 0%;
-        //height: 30px;
-        background-color: #007849;
+        height: 24px;
         border-radius: 4px;
     }
 }
@@ -120,4 +117,8 @@ body {
         padding: 1rem;
         margin: 1rem;
     }
+}
+
+.show-answer {
+    margin-top: 1rem;
 }

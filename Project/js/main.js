@@ -46,7 +46,6 @@ function renderOneQuestion() {
     const node = document.querySelector("body");
     node.innerHTML = "";
     renderStats(node);
-    //renderTimer();
 
     /*step 2 - renders current question to page*/
     const currentQuestion = getCurrentQuestion();
@@ -61,6 +60,9 @@ function renderOneQuestion() {
 
     const answerContainer = document.createElement("div"); //creates container to hold the answers
     answerContainer.classList.add("answer-container"); //adds a class to that container
+
+    const correctAnswerDiv = document.createElement("div"); //creates a div to show the user the correct answer
+    correctAnswerDiv.classList.add("show-answer");
 
     let randomAnswer = [0, 1, 2, 3]; //has same length as number of possible answers
     //Shuffles array to get a number in no particular order using the Fisher Yates method
@@ -92,6 +94,8 @@ function renderOneQuestion() {
                     //re-renders the scoreBox to reflect new score
                     const scoreBox = document.querySelector(".score-box");
                     scoreBox.innerHTML = renderScore();
+
+                    stopTimer(timerId);
                 }
             })
         } else {
@@ -111,8 +115,9 @@ function renderOneQuestion() {
                     answer.style.backgroundColor = "#C30916"; //change background-color to red
                     answer.style.transition = "all 1.5s"; //adds a gradual transition to red color
 
-                    //alert(`The correct answer was ${currentQuestion.correct_answer}`);
-                    showCorrectAnswer();
+                    showCorrectAnswer(correctAnswerDiv, currentQuestion);
+
+                    stopTimer(timerId);
                 }
             })
         }
@@ -120,6 +125,7 @@ function renderOneQuestion() {
 
     container.appendChild(answerContainer); //adds the answer container to page
     renderButton(); //adds next button once an answer has been clicked
+    container.appendChild(correctAnswerDiv);
 }
 
 function renderButton() {
@@ -137,7 +143,7 @@ function renderButton() {
         //renders the next question if the questions have not been exhausted
         if (currentQuestionIndex != questionList.length) {
             renderOneQuestion();
-            //renderTimer();
+            presentTime = 0;
         } else {
             renderGoodbye();
         }
@@ -158,36 +164,46 @@ function renderStats(node) {
 
     const timerBox = document.createElement("div");
     timerBox.classList.add("timer-box");
-    timerBox.innerHTML = `<p>Timer</p><div id="timer"></div>`;
+    timerBox.innerHTML = `<p>Timer</p><div class="outer"><div id="timer"></div></div>`;
     statsBox.appendChild(timerBox);
+
+    timerId = setInterval(timerTick, 600);
+    timerTick(timerId);
 }
 
 function renderScore() {
     return `<p>Score</p><h3>${score} / ${questionList.length}</h3>`;
 }
 
-/*function renderTimer() {
-    var i = 0;
-    const node = document.querySelector("body");
-    node.addEventListener("load", () => {
-        if (i == 0) {
-            i = 1;
-            var elem = document.getElementById("timer");
-            var width = 1;
-            var id = setInterval(frame, 600);
+let timerId = null;
+//let timerId = setInterval(timerTick, 600);
 
-            function frame() {
-                if (width >= 100) {
-                    clearInterval(id);
-                    i = 0;
-                } else {
-                    width++;
-                    elem.style.width = width + "%";
-                }
+function timerTick() {
+    const timer = document.getElementById("timer");
+    if (timer != null) {
+        let strwidth = timer.style.width;
+        let width = strwidth.substring(0, strwidth.length - 1);
+        if (width != 100) {
+            width++;
+            timer.style.width = width + "%";
+        } else {
+            clearInterval(timerId);
+            //when the timer ends, do this:
+            const container = document.querySelector(".trivia-container");
+            const currentQuestion = getCurrentQuestion();
+            const correctAnswerDiv = document.querySelector(".show-answer");
+            if (!container.classList.contains("done")) {
+                container.classList.add("done"); //adds class "done" so the user can no longer select an answer
+
+                showCorrectAnswer(correctAnswerDiv, currentQuestion); //shows what the correct answer was
             }
         }
-    })
-}*/
+    }
+}
+
+function stopTimer(timerId) {
+    clearInterval(timerId)
+}
 
 function renderGoodbye() {
     /*step 1 - remove question/answer content*/
@@ -212,32 +228,7 @@ function renderGoodbye() {
     })
 }
 
-function showCorrectAnswer() {
-    const currentQuestion = getCurrentQuestion();
-    const modal = document.createElement("div");
-    modal.classList.add("modal");
-
-    const modalContent = document.createElement("div");
-    modalContent.classList.add("modal-content");
-
-    const span = document.createElement("span");
-    span.classList.add("close");
-    span.innerHTML = `&times;`;
-    modalContent.appendChild(span); //adds the span to modalContent
-
-    modalContent.innerHTML = `<p>The correct answer was ${currentQuestion.correct_answer}</p>`
-    modal.appendChild(modalContent); //adds modalContent to the modal
-
-    modal.style.display = "block";
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-            modal.style.display = "none";
-        }
-        // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+function showCorrectAnswer(correctAnswerDiv, currentQuestion) {
+    correctAnswerDiv.style.opacity = 1;
+    correctAnswerDiv.innerHTML = `The correct answer was ${currentQuestion.correct_answer}`;
 }
